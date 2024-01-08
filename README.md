@@ -11,4 +11,7 @@ get token on github (only valid for certain amount of time)
 6. git push aldhr
 
 
+or if changes are minimal (basically text settings) it can just be updated index.html
+
+
 
