@@ -14,12 +14,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-dark: #1a1a1a; /* Dark background */
-            --secondary-dark: #2a2a2a; /* Slightly lighter dark for cards */
-            --accent-orange: #ff6f00; /* Vibrant orange */
-            --text-light: #e0e0e0; /* Light text for dark background */
-            --text-muted-light: #b0b0b0; /* Muted light text */
-            --border-dark: #3a3a3a; /* Dark border color */
+            --primary-dark: #1a1a1a;
+            --secondary-dark: #2a2a2a;
+            --accent-orange: #ff6f00;
+            --text-light: #e0e0e0;
+            --text-muted-light: #b0b0b0;
+            --border-dark: #3a3a3a;
             --shadow-dark: rgba(0, 0, 0, 0.4);
         }
         
@@ -29,6 +29,7 @@
             line-height: 1.7;
             background-color: var(--primary-dark);
             scroll-behavior: smooth;
+            padding-top: 76px;
         }
         
         h1, h2, h3, h4, h5, h6 {
@@ -37,14 +38,13 @@
             color: var(--text-light);
         }
 
-        /* Override Bootstrap defaults for dark mode */
         .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
             color: var(--text-light);
         }
         
         .navbar {
             background-color: var(--primary-dark);
-            border-bottom: 2px solid var(--accent-orange); /* Orange line at bottom */
+            border-bottom: 2px solid var(--accent-orange);
             box-shadow: 0 4px 15px var(--shadow-dark);
             padding: 0.8rem 0;
         }
@@ -78,7 +78,7 @@
         .hero-section {
             background: linear-gradient(135deg, var(--primary-dark) 0%, #0d0d0d 100%);
             color: var(--text-light);
-            padding: 100px 0 80px; /* Adjusted padding */
+            padding: 100px 0 80px;
             position: relative;
             overflow: hidden;
         }
@@ -90,8 +90,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="10" fill="rgba(255, 111, 0, 0.1)" /><path d="M50 0 L60 40 L100 50 L60 60 L50 100 L40 60 L0 50 L40 40 Z" fill="rgba(255, 111, 0, 0.05)" /></svg>'); /* Subtle scientific pattern */
-            background-size: 80px; /* Smaller pattern */
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="10" fill="rgba(255, 111, 0, 0.1)" /><path d="M50 0 L60 40 L100 50 L60 60 L50 100 L40 60 L0 50 L40 40 Z" fill="rgba(255, 111, 0, 0.05)" /></svg>');
+            background-size: 80px;
             opacity: 0.2;
             z-index: 0;
         }
@@ -108,7 +108,22 @@
             border: 6px solid var(--accent-orange);
             object-fit: cover;
             box-shadow: 0 0 20px rgba(255, 111, 0, 0.4);
-            margin-top: 2rem; /* Add some margin for larger image */
+            margin-top: 2rem;
+        }
+        
+        .profile-img-placeholder {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            border: 6px solid var(--accent-orange);
+            background: linear-gradient(45deg, var(--accent-orange), #ff8c33);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-dark);
+            font-size: 4rem;
+            box-shadow: 0 0 20px rgba(255, 111, 0, 0.4);
+            margin: 2rem auto 0;
         }
         
         .section-title {
@@ -132,7 +147,6 @@
             border-radius: 2px;
         }
 
-        /* Generic section padding */
         section {
             padding: 6rem 0;
             position: relative;
@@ -155,7 +169,7 @@
         
         .card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(255, 111, 0, 0.2); /* Orange glow on hover */
+            box-shadow: 0 12px 30px rgba(255, 111, 0, 0.2);
         }
 
         .card-title {
@@ -165,10 +179,10 @@
         }
         
         .skill-badge {
-            background-color: var(--border-dark); /* Darker badge background */
+            background-color: var(--border-dark);
             color: var(--text-light);
             padding: 0.6rem 1.2rem;
-            border-radius: 5px; /* Slightly less rounded */
+            border-radius: 5px;
             margin: 0.4rem;
             display: inline-block;
             font-size: 0.95rem;
@@ -206,19 +220,19 @@
             position: absolute;
             left: -2rem;
             top: 5px;
-            width: 16px; /* Larger dot */
+            width: 16px;
             height: 16px;
             border-radius: 50%;
             background-color: var(--accent-orange);
-            border: 4px solid var(--secondary-dark); /* Border from card background */
+            border: 4px solid var(--secondary-dark);
             box-shadow: 0 0 0 3px rgba(255, 111, 0, 0.4);
         }
         
         .publication-item {
-            border-left: 4px solid var(--accent-orange); /* Thicker orange line */
+            border-left: 4px solid var(--accent-orange);
             padding-left: 1.5rem;
             margin-bottom: 2rem;
-            background-color: var(--secondary-dark); /* Match section background */
+            background-color: var(--secondary-dark);
             padding-top: 1rem;
             padding-bottom: 1rem;
             border-radius: 5px;
@@ -239,13 +253,13 @@
         }
 
         .social-links {
-            display: flex; /* Use flex for social links container */
-            flex-wrap: wrap; /* Allow wrapping on smaller screens */
-            justify-content: center; /* Center them in the contact section */
-            gap: 0.75rem; /* Space between items */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
         }
         .social-links a {
-            display: inline-flex; /* Use flex for vertical alignment */
+            display: inline-flex;
             justify-content: center;
             align-items: center;
             width: 45px;
@@ -254,7 +268,6 @@
             background-color: var(--border-dark);
             color: var(--text-light);
             font-size: 1.2rem;
-            /* margin-right: 0.75rem; Removed due to gap */
             transition: all 0.3s;
             border: 1px solid var(--border-dark);
         }
@@ -289,13 +302,13 @@
             z-index: 1000;
             box-shadow: 0 5px 15px rgba(255, 111, 0, 0.4);
             transition: all 0.3s;
+            border: none;
         }
         .back-to-top:hover {
             transform: scale(1.1);
-            background-color: #ff8c33; /* Slightly lighter orange on hover */
+            background-color: #ff8c33;
         }
 
-        /* Buttons */
         .btn-primary {
             background-color: var(--accent-orange);
             border-color: var(--accent-orange);
@@ -306,13 +319,13 @@
             transition: all 0.3s;
         }
         .btn-primary:hover {
-            background-color: #ff8c33; /* Lighter orange on hover */
+            background-color: #ff8c33;
             border-color: #ff8c33;
             color: var(--primary-dark);
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(255, 111, 0, 0.3);
         }
-        .btn-light { /* For secondary CTA if needed */
+        .btn-light {
             background-color: var(--secondary-dark);
             border-color: var(--border-dark);
             color: var(--text-light);
@@ -345,13 +358,20 @@
             text-decoration: underline;
         }
 
-        /* Responsive adjustments */
+        .research-interest {
+            background: linear-gradient(135deg, var(--secondary-dark) 0%, var(--border-dark) 100%);
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--accent-orange);
+        }
+
         @media (max-width: 991.98px) {
             .hero-section {
                 text-align: center;
                 padding: 80px 0 60px;
             }
-            .profile-img {
+            .profile-img, .profile-img-placeholder {
                 margin-top: 2.5rem;
                 width: 180px;
                 height: 180px;
@@ -394,7 +414,7 @@
             .hero-section {
                 padding: 100px 0 60px;
             }
-            .profile-img {
+            .profile-img, .profile-img-placeholder {
                 width: 160px;
                 height: 160px;
                 margin-top: 2rem;
@@ -422,7 +442,7 @@
     <!-- Navigation -->
     <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">ALDO HERRERA, PHD</a>
+            <a class="navbar-brand" href="#home">ALDO HERRERA, PHD</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -456,16 +476,28 @@
         <div class="container">
             <div class="row align-items-center flex-column-reverse flex-lg-row">
                 <div class="col-lg-8 hero-content text-center text-lg-start">
-                    <h4 class="mb-2 text-uppercase text-muted-light">Computational Biophysics & Protein Engineering</h4>
+                    <h4 class="mb-2 text-uppercase" style="color: var(--text-muted-light);">Computational Biophysics & Protein Engineering</h4>
                     <h1 class="display-3 fw-bold mb-3 text-white">Aldo Herrera, PhD</h1>
-                    <p class="lead mb-4 text-muted-light">Molecular Modeling & Dynamics | AI-driven Drug Discovery</p>
-                    <div class="d-flex justify-content-center justify-content-lg-start gap-3">
+                    <p class="lead mb-4" style="color: var(--text-muted-light);">Molecular Modeling & Dynamics | AI-driven Drug Discovery</p>
+                    <div class="social-links mb-4 justify-content-center justify-content-lg-start">
+                        <a href="https://github.com/aldhr" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/aldo-herrera-37894523a/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://twitter.com/aldhrod" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://scholar.google.com/citations?user=iTskABYAAAAJ&hl=es&oi=ao" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                        <a href="https://orcid.org/0000-0003-1279-7697" target="_blank" title="ORCID"><i class="fab fa-orcid"></i></a>
+                        <a href="https://www.researchgate.net/profile/Aldo-Herrera-5" target="_blank" title="ResearchGate"><i class="fab fa-researchgate"></i></a>
+                    </div>
+                    <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-lg-start gap-3">
                         <a href="#research" class="btn btn-primary btn-lg">View Research <i class="fas fa-flask ms-2"></i></a>
                         <a href="./AldoHR_CV.pdf" class="btn btn-light btn-lg" target="_blank">Download CV <i class="fas fa-download ms-2"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-4 text-center">
-                    <img src="assets/imgs/avatar.jpg" alt="Aldo Herrera" class="profile-img">
+                    <!-- Profile Image - Replace with your actual image -->
+                    <img src="assets/imgs/avatar.jpg" alt="Aldo Herrera" class="profile-img" onerror="this.style.display='none'; document.getElementById('profile-placeholder').style.display='flex';">
+                    <div id="profile-placeholder" class="profile-img-placeholder" style="display: none;">
+                        <i class="fas fa-user"></i>
+                    </div>
                 </div>
             </div>
         </div>
@@ -484,7 +516,30 @@
                     <p class="lead mb-4">I like to think of myself as a curious and self-motivated scientist that enjoys being surprised by biology.</p>
                     <p>I have focused my career on computational tools for the analysis of biomolecular systems. My projects are strongly related to molecular modelling, simulations of protein dynamics and protein-ligand interactions, including steered molecular dynamics and free energy landscape calculations.</p>
                     <p>Beyond biophysics, I have also participated in other projects for the analysis (and/or code developing for the analysis) of genetic, biochemical, and chemical data. Including approaches of machine and deep learning as well as bio- and chemo- informatics.</p>
-                    <a href="./AldoHR_CV.pdf" class="btn btn-primary mt-3" target="_blank">View Full CV <i class="fas fa-file-pdf ms-2"></i></a>
+                    
+                    <div class="research-interest">
+                        <h5 class="text-white"><i class="fas fa-flask me-2"></i>Research Interests</h5>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-arrow-right me-2" style="color: var(--accent-orange);"></i>Protein Dynamics & Engineering</li>
+                                    <li><i class="fas fa-arrow-right me-2" style="color: var(--accent-orange);"></i>Computational Biophysics</li>
+                                    <li><i class="fas fa-arrow-right me-2" style="color: var(--accent-orange);"></i>Molecular Modeling & Simulations</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-arrow-right me-2" style="color: var(--accent-orange);"></i>AI-driven Drug Discovery</li>
+                                    <li><i class="fas fa-arrow-right me-2" style="color: var(--accent-orange);"></i>Bioinformatics & Chemoinformatics</li>
+                                    <li><i class="fas fa-arrow-right me-2" style="color: var(--accent-orange);"></i>High-Performance Computing</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="./AldoHR_CV.pdf" class="btn btn-primary mt-3" target="_blank">
+                        <i class="fas fa-file-pdf me-2"></i>View Full CV
+                    </a>
                 </div>
                 <div class="col-lg-4">
                     <div class="card h-100">
@@ -495,8 +550,31 @@
                                 <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> Monterrey, Mexico</li>
                                 <li class="mb-2"><i class="fas fa-language me-2"></i> Spanish (Native), English (C1)</li>
                                 <li class="mb-2"><i class="fas fa-globe me-2"></i> <a href="https://aldhr.github.io/" target="_blank">aldhr.github.io</a></li>
-                                <li class="mb-2"><i class="fas fa-calendar-alt me-2"></i> ORCID: 0000-0003-1279-7697</li>
+                                <li class="mb-2"><i class="fas fa-id-badge me-2"></i> ORCID: 0000-0003-1279-7697</li>
                             </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-graduation-cap me-2"></i> Education</h5>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <h6 style="color: var(--accent-orange);">PhD in Biomedical Engineering and Physics</h6>
+                                    <p class="small mb-1">CINVESTAV</p>
+                                    <p class="small" style="color: var(--text-muted-light);">2020 - 2025</p>
+                                </div>
+                                <div class="timeline-item">
+                                    <h6 style="color: var(--accent-orange);">MSc in Pharmaceutical Science</h6>
+                                    <p class="small mb-1">UANL</p>
+                                    <p class="small" style="color: var(--text-muted-light);">2018 - 2020</p>
+                                </div>
+                                <div class="timeline-item">
+                                    <h6 style="color: var(--accent-orange);">BSc in Biopharmaceutical Chemistry</h6>
+                                    <p class="small mb-1">UANL</p>
+                                    <p class="small" style="color: var(--text-muted-light);">2013 - 2018</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -572,7 +650,7 @@
             
             <div class="row">
                 <div class="col-lg-12">
-                    <h4 class="mb-3 mt-4 text-accent-orange">2025</h4>
+                    <h4 class="mb-3 mt-4" style="color: var(--accent-orange);">2025</h4>
                     
                     <div class="publication-item">
                         <h5>Extensive In-silico Target-Ligand Conformational Space Sampling of Garlic-Derived Sulfur Compounds Targeting COVID-19 Infection</h5>
@@ -586,7 +664,7 @@
                         <p class="mb-0"><em>PLOS Computational Biology</em> (In Press, 2025)</p>
                     </div>
                     
-                    <h4 class="mb-3 mt-5 text-accent-orange">2022</h4>
+                    <h4 class="mb-3 mt-5" style="color: var(--accent-orange);">2022</h4>
                     
                     <div class="publication-item">
                         <h5>Repurposing Drugs as Potential Therapeutics for the SARS-CoV-2 Viral Infection: Automatizing a Blind Molecular Docking High-throughput Pipeline</h5>
@@ -600,7 +678,7 @@
                         <p class="mb-0"><em>Current Topics in Medicinal Chemistry</em>, 22(2), 109–131. <a href="https://doi.org/10.2174/1568026621666211122163156" target="_blank">https://doi.org/10.2174/1568026621666211122163156</a></p>
                     </div>
                     
-                    <h4 class="mb-3 mt-5 text-accent-orange">2021</h4>
+                    <h4 class="mb-3 mt-5" style="color: var(--accent-orange);">2021</h4>
                     
                     <div class="publication-item">
                         <h5>NAT2 Polymorphisms Associated with the Development of Hepatotoxicity After First-line Tuberculosis Treatment in Mexican Patients: From Genotype to Molecular Structure Characterization</h5>
@@ -625,23 +703,29 @@
                 <div class="col-lg-4 mb-4">
                     <div class="card h-100">
                         <div class="card-body">
-                            <h4 class="card-title"><i class="fas fa-atom me-2"></i> Molecular Modeling & Simulations</h4>
+                            <h4 class="card-title"><i class="fas fa-atom me-2"></i> Molecular Computational Tools</h4>
                             <div class="mt-3">
                                 <span class="skill-badge">GROMACS</span>
+                                <span class="skill-badge">RDKit</span>
+                                <span class="skill-badge">AutoDock</span>
+                                <span class="skill-badge">Vina</span>
+                                <span class="skill-badge">CHARMM</span>
+                                <span class="skill-badge">AMBER</span>
+                                <span class="skill-badge">NAMD</span>
+                                <span class="skill-badge">OpenMM</span>
+                                <span class="skill-badge">PyMOL</span>
+                                <span class="skill-badge">Chimera</span>
+                                <span class="skill-badge">Biopython</span>
                                 <span class="skill-badge">MDAnalysis</span>
-                                <span class="skill-badge">VMD</span>
-                                <span class="skill-badge">Chimera UCSF</span>
-                                <span class="skill-badge">AutoDock VINA</span>
-                                <span class="skill-badge">CB-Dock</span>
-                                <span class="skill-badge">MGLTools</span>
-                                <span class="skill-badge">PyMol</span>
-                                <span class="skill-badge">Rosetta</span>
-                                <span class="skill-badge">AlphaFold</span>
-                                <span class="skill-badge">RFdiffusion</span>
-                                <span class="skill-badge">LIGPLOT</span>
-                                <span class="skill-badge">swiss-model</span>
-                                <span class="skill-badge">Avogadro</span>
-                                <span class="skill-badge">BIOVIA</span>
+                                <span class="skill-badge">PLIP</span>
+                                <span class="skill-badge">PyRosetta</span>
+                                <span class="skill-badge">High-Throughput Virtual Screening</span>
+                                <span class="skill-badge">Molecular Docking</span>
+                                <span class="skill-badge">Free Energy Calculations</span>
+                                <span class="skill-badge">Molecular Modeling</span>
+                                <span class="skill-badge">PCA Analysis</span>
+                                <span class="skill-badge">Hydrogen Bond Analysis</span>
+                                <span class="skill-badge">Conformational Entropy Analysis</span>
                             </div>
                         </div>
                     </div>
@@ -650,9 +734,188 @@
                 <div class="col-lg-4 mb-4">
                     <div class="card h-100">
                         <div class="card-body">
-                            <h4 class="card-title"><i class="fas fa-code me-2"></i> Programming & Data Analysis</h4>
+                            <h4 class="card-title"><i class="fas fa-code me-2"></i> Programming & Data Science</h4>
                             <div class="mt-3">
                                 <span class="skill-badge">Python</span>
                                 <span class="skill-badge">R</span>
-                                <span class="skill-badge">Bash-Scripting</span>
-                                <span class="skill-badge">
+                                <span class="skill-badge">Bash</span>
+                                <span class="skill-badge">Nextflow</span>
+                                <span class="skill-badge">Pandas</span>
+                                <span class="skill-badge">Matplotlib</span>
+                                <span class="skill-badge">Seaborn</span>
+                                <span class="skill-badge">NumPy</span>
+                                <span class="skill-badge">SciPy</span>
+                                <span class="skill-badge">Scikit-learn</span>
+                                <span class="skill-badge">PyTorch</span>
+                                <span class="skill-badge">TensorFlow</span>
+                                <span class="skill-badge">Slurm</span>
+                                <span class="skill-badge">HPC Environments</span>
+                                <span class="skill-badge">Linux/Unix Systems</span>
+                                <span class="skill-badge">Data Visualization</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title"><i class="fas fa-flask me-2"></i> Laboratory & Soft Skills</h4>
+                            <div class="mt-3">
+                                <span class="skill-badge">Micropipette</span>
+                                <span class="skill-badge">Solution Preparation</span>
+                                <span class="skill-badge">Centrifugation</span>
+                                <span class="skill-badge">UV-Vis Spectrophotometry</span>
+                                <span class="skill-badge">Titration</span>
+                                <span class="skill-badge">Bacterial Culture</span>
+                                <span class="skill-badge">Gram Staining</span>
+                                <span class="skill-badge">Autoclaving</span>
+                                <span class="skill-badge">PCR</span>
+                                <span class="skill-badge">Critical Thinking</span>
+                                <span class="skill-badge">Problem Solving</span>
+                                <span class="skill-badge">Team Collaboration</span>
+                                <span class="skill-badge">Adaptability</span>
+                                <span class="skill-badge">Project Management</span>
+                                <span class="skill-badge">Scientific Communication</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title"><i class="fas fa-laptop-code me-2"></i> Coding Portfolio</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h6 class="mt-3" style="color: var(--accent-orange);">Drug-target interaction miner</h6>
+                                    <p>Extracts protein-ligand information from PDB IDs into graph format for Graph Neural Network input.</p>
+                                    
+                                    <h6 class="mt-3" style="color: var(--accent-orange);">Bash-Scripting Pipeline</h6>
+                                    <p>Automates multiple-cycle molecular docking analysis, processes files into AutoDock VINA inputs, formats output into CSV for further analysis.</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <h6 class="mt-3" style="color: var(--accent-orange);">Cheminformatics Analysis Notebooks</h6>
+                                    <p>Analyzes distribution of molecular docking sets, visualizes protein frequent electrostatic interactions.</p>
+                                    
+                                    <h6 class="mt-3" style="color: var(--accent-orange);">Colab notebooks</h6>
+                                    <p>Protein-DNA docking & Protein-Ligand molecular dynamics simulations.</p>
+                                </div>
+                            </div>
+                            <div class="text-center mt-4">
+                                <a href="https://github.com/aldhr" class="btn btn-primary" target="_blank">
+                                    <i class="fab fa-github me-2"></i>View My GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="section-title">Get In Touch</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h4 class="card-title">Interested in collaborating?</h4>
+                            <p class="card-text">I'm always open to discussing new research opportunities, collaborations, or potential projects.</p>
+                            <a href="mailto:aldo.hrodulfo@gmail.com" class="btn btn-primary btn-lg mt-3">
+                                <i class="fas fa-envelope me-2"></i>Send me an email
+                            </a>
+                            <div class="social-links mt-4">
+                                <a href="https://github.com/aldhr" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                                <a href="https://www.linkedin.com/in/aldo-herrera-37894523a/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://twitter.com/aldhrod" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="https://scholar.google.com/citations?user=iTskABYAAAAJ&hl=es&oi=ao" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                                <a href="https://orcid.org/0000-0003-1279-7697" target="_blank" title="ORCID"><i class="fab fa-orcid"></i></a>
+                                <a href="https://www.researchgate.net/profile/Aldo-Herrera-5" target="_blank" title="ResearchGate"><i class="fab fa-researchgate"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2023 Aldo Herrera, PhD. All rights reserved.</p>
+            <p class="text-muted">Designed with passion for science and technology</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        // Back to top button
+        const backToTopButton = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+        
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile navbar after clicking
+                    const navbarToggler = document.querySelector('.navbar-toggler');
+                    const navbarCollapse = document.querySelector('.navbar-collapse');
+                    
+                    if (navbarCollapse.classList.contains('show')) {
+                        navbarToggler.click();
+                    }
+                }
+            });
+        });
+        
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 100) {
+                document.querySelector('.navbar').style.backgroundColor = 'rgba(44, 62, 80, 0.95)';
+                document.querySelector('.navbar').style.backdropFilter = 'blur(10px)';
+            } else {
+                document.querySelector('.navbar').style.backgroundColor = '';
+                document.querySelector('.navbar').style.backdropFilter = '';
+            }
+        });
+    </script>
+</body>
+</html>
