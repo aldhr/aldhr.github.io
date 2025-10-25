@@ -365,11 +365,12 @@
 
         .list-unstyled li {
             color: var(--text-muted-light);
-            font-size: 1.05rem;
+            font-size: 0.95rem; /* Smaller font size */
+            line-height: 1.5; /* Tighter line height */
         }
         .list-unstyled li i {
             color: var(--accent-orange);
-            font-size: 1.1rem;
+            font-size: 1rem; /* Smaller icon size */
         }
         .list-unstyled li a {
             color: var(--accent-orange);
@@ -385,6 +386,16 @@
             padding: 2rem;
             margin: 1.5rem 0;
             border-left: 4px solid var(--accent-orange);
+        }
+
+        /* Smaller personal info card */
+        .personal-info-card .card-body {
+            padding: 1.25rem; /* Reduced padding */
+        }
+        
+        .personal-info-card .card-title {
+            font-size: 1.2rem; /* Smaller title */
+            margin-bottom: 0.75rem; /* Less margin */
         }
 
         @media (max-width: 991.98px) {
@@ -567,7 +578,8 @@
                     </a>
                 </div>
                 <div class="col-lg-4">
-                    <div class="card h-100">
+                    <!-- Smaller Personal Info Card -->
+                    <div class="card personal-info-card">
                         <div class="card-body">
                             <h5 class="card-title"><i class="fas fa-info-circle me-2"></i> Personal Info</h5>
                             <ul class="list-unstyled">
