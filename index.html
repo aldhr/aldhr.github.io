@@ -198,6 +198,27 @@
         .timeline {
             position: relative;
             padding-left: 2rem;
+            max-height: 300px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+        
+        .timeline::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .timeline::-webkit-scrollbar-track {
+            background: var(--border-dark);
+            border-radius: 4px;
+        }
+        
+        .timeline::-webkit-scrollbar-thumb {
+            background: var(--accent-orange);
+            border-radius: 4px;
+        }
+        
+        .timeline::-webkit-scrollbar-thumb:hover {
+            background: #ff8c33;
         }
         
         .timeline::before {
@@ -393,6 +414,10 @@
             .social-links {
                 justify-content: center;
             }
+            .timeline {
+                max-height: none;
+                overflow-y: visible;
+            }
         }
         @media (max-width: 767.98px) {
             .navbar-brand {
@@ -555,23 +580,25 @@
                         </div>
                     </div>
                     
-                    <div class="card mt-4">
+                    <div class="card mt-4" style="min-height: 400px;">
                         <div class="card-body">
                             <h5 class="card-title"><i class="fas fa-graduation-cap me-2"></i> Education</h5>
                             <div class="timeline">
                                 <div class="timeline-item">
                                     <h6 style="color: var(--accent-orange);">PhD in Biomedical Engineering and Physics</h6>
-                                    <p class="small mb-1">CINVESTAV</p>
+                                    <p class="small mb-1">Center for Research and Advanced Studies of the IPN, Monterrey Unit (CINVESTAV)</p>
                                     <p class="small" style="color: var(--text-muted-light);">2020 - 2025</p>
+                                    <p class="small mt-2"><em>Thesis: The Role of Conformational Dynamics Conservation in the Structure-Function Paradigm: A Case Study on the RBD of SARS-CoV-2 Spike Protein Variants.</em></p>
                                 </div>
                                 <div class="timeline-item">
                                     <h6 style="color: var(--accent-orange);">MSc in Pharmaceutical Science</h6>
-                                    <p class="small mb-1">UANL</p>
+                                    <p class="small mb-1">Autonomous University of Nuevo León (UANL)</p>
                                     <p class="small" style="color: var(--text-muted-light);">2018 - 2020</p>
+                                    <p class="small mt-2"><em>Thesis: Analysis of N-acetyltransferase 2 (NAT2) gene polymorphisms as markers of liver damage from first-line tuberculosis treatment in a population from northeastern Mexico, and molecular dynamics studies.</em></p>
                                 </div>
                                 <div class="timeline-item">
                                     <h6 style="color: var(--accent-orange);">BSc in Biopharmaceutical Chemistry</h6>
-                                    <p class="small mb-1">UANL</p>
+                                    <p class="small mb-1">Autonomous University of Nuevo León (UANL)</p>
                                     <p class="small" style="color: var(--text-muted-light);">2013 - 2018</p>
                                 </div>
                             </div>
@@ -909,7 +936,7 @@
         // Navbar background on scroll
         window.addEventListener('scroll', function() {
             if (window.scrollY > 100) {
-                document.querySelector('.navbar').style.backgroundColor = 'rgba(44, 62, 80, 0.95)';
+                document.querySelector('.navbar').style.backgroundColor = 'rgba(26, 26, 26, 0.95)';
                 document.querySelector('.navbar').style.backdropFilter = 'blur(10px)';
             } else {
                 document.querySelector('.navbar').style.backgroundColor = '';
