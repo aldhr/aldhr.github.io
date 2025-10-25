@@ -238,6 +238,12 @@
             text-decoration: underline;
         }
 
+        .social-links {
+            display: flex; /* Use flex for social links container */
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            justify-content: center; /* Center them in the contact section */
+            gap: 0.75rem; /* Space between items */
+        }
         .social-links a {
             display: inline-flex; /* Use flex for vertical alignment */
             justify-content: center;
@@ -248,7 +254,7 @@
             background-color: var(--border-dark);
             color: var(--text-light);
             font-size: 1.2rem;
-            margin-right: 0.75rem;
+            /* margin-right: 0.75rem; Removed due to gap */
             transition: all 0.3s;
             border: 1px solid var(--border-dark);
         }
@@ -649,8 +655,4 @@
                                 <span class="skill-badge">Python</span>
                                 <span class="skill-badge">R</span>
                                 <span class="skill-badge">Bash-Scripting</span>
-                                <span class="skill-badge">VIM</span>
-                                <span class="skill-badge">tmux</span>
-                                <span class="skill-badge">Linux/UNIX</span>
-                                <span class="skill-badge">Pandas</span>
-                                <span class="skill-badge">NumPy</span>
+                                <span class="skill-badge">
