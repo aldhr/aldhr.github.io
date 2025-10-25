@@ -25,6 +25,7 @@
             font-family: 'Source Sans Pro', sans-serif;
             color: #333;
             line-height: 1.6;
+            padding-top: 76px; /* Account for fixed navbar */
         }
         
         h1, h2, h3, h4, h5, h6 {
@@ -35,6 +36,7 @@
         .navbar {
             background-color: var(--primary);
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s;
         }
         
         .navbar-brand {
@@ -55,7 +57,7 @@
         .hero-section {
             background: linear-gradient(135deg, var(--primary) 0%, #34495e 100%);
             color: white;
-            padding: 150px 0 100px;
+            padding: 120px 0 80px;
             position: relative;
             overflow: hidden;
         }
@@ -78,11 +80,28 @@
         }
         
         .profile-img {
-            width: 200px;
-            height: 200px;
+            width: 220px;
+            height: 220px;
             border-radius: 50%;
             border: 5px solid rgba(255,255,255,0.2);
             object-fit: cover;
+            object-position: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .profile-img-placeholder {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            border: 5px solid rgba(255,255,255,0.2);
+            background: linear-gradient(45deg, #3498db, #2c3e50);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin: 0 auto;
         }
         
         .section-title {
@@ -106,11 +125,12 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: transform 0.3s, box-shadow 0.3s;
             margin-bottom: 1.5rem;
+            border-radius: 10px;
         }
         
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
         
         .skill-badge {
@@ -121,6 +141,14 @@
             margin: 0.25rem;
             display: inline-block;
             font-size: 0.9rem;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s;
+        }
+        
+        .skill-badge:hover {
+            background-color: var(--secondary);
+            color: white;
+            transform: translateY(-2px);
         }
         
         .timeline {
@@ -160,24 +188,32 @@
             border-left: 3px solid var(--secondary);
             padding-left: 1rem;
             margin-bottom: 1.5rem;
+            transition: all 0.3s;
+        }
+        
+        .publication-item:hover {
+            border-left-color: var(--accent);
+            transform: translateX(5px);
         }
         
         .social-links a {
             display: inline-block;
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             background-color: var(--primary);
             color: white;
             text-align: center;
-            line-height: 40px;
+            line-height: 45px;
             margin-right: 0.5rem;
             transition: all 0.3s;
+            font-size: 1.1rem;
         }
         
         .social-links a:hover {
             background-color: var(--accent);
             transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
         footer {
@@ -201,16 +237,40 @@
             display: none;
             z-index: 1000;
             box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            border: none;
+        }
+        
+        .back-to-top:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+        }
+        
+        .education-card {
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .research-interest {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 1.5rem 0;
         }
         
         @media (max-width: 768px) {
             .hero-section {
-                padding: 120px 0 80px;
+                padding: 100px 0 60px;
+                text-align: center;
             }
             
-            .profile-img {
-                width: 150px;
-                height: 150px;
+            .profile-img, .profile-img-placeholder {
+                width: 180px;
+                height: 180px;
+                margin-bottom: 2rem;
+            }
+            
+            body {
+                padding-top: 66px;
             }
         }
     </style>
@@ -219,7 +279,9 @@
     <!-- Navigation -->
     <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">Aldo Herrera, PhD</a>
+            <a class="navbar-brand" href="#home">
+                <i class="fas fa-atom me-2"></i>Aldo Herrera, PhD
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -257,16 +319,21 @@
                     <h1 class="display-4 fw-bold mb-3">Aldo Herrera, PhD</h1>
                     <p class="lead mb-4">PhD in Engineering and Biomedical Physics | Molecular Modeling & Dynamics | AI-driven Drug Discovery</p>
                     <div class="social-links mb-4">
-                        <a href="https://github.com/aldhr" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/aldo-herrera-37894523a/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://twitter.com/aldhrod" target="_blank"><i class="fab fa-twitter"></i></a>
-                        <a href="https://scholar.google.com/citations?user=iTskABYAAAAJ&hl=es&oi=ao" target="_blank"><i class="fas fa-graduation-cap"></i></a>
-                        <a href="https://orcid.org/0000-0003-1279-7697" target="_blank"><i class="fab fa-orcid"></i></a>
+                        <a href="https://github.com/aldhr" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/aldo-herrera-37894523a/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://twitter.com/aldhrod" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://scholar.google.com/citations?user=iTskABYAAAAJ&hl=es&oi=ao" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                        <a href="https://orcid.org/0000-0003-1279-7697" target="_blank" title="ORCID"><i class="fab fa-orcid"></i></a>
+                        <a href="https://www.researchgate.net/profile/Aldo-Herrera-5" target="_blank" title="ResearchGate"><i class="fab fa-researchgate"></i></a>
                     </div>
                     <a href="#about" class="btn btn-light btn-lg">Explore My Work <i class="fas fa-arrow-down ms-2"></i></a>
                 </div>
                 <div class="col-lg-4 text-center">
-                    <img src="https://via.placeholder.com/300" alt="Aldo Herrera" class="profile-img">
+                    <!-- Profile Image - Replace with your actual image -->
+                    <img src="assets/imgs/avatar.jpg" alt="Aldo Herrera" class="profile-img" onerror="this.style.display='none'; document.getElementById('profile-placeholder').style.display='flex';">
+                    <div id="profile-placeholder" class="profile-img-placeholder" style="display: none;">
+                        <i class="fas fa-user"></i>
+                    </div>
                 </div>
             </div>
         </div>
@@ -285,18 +352,65 @@
                     <p class="lead mb-4">I like to think of myself as a curious and self-motivated scientist that enjoys being surprised by biology.</p>
                     <p>I have focused my career on computational tools for the analysis of biomolecular systems. My projects are strongly related to molecular modelling, simulations of protein dynamics and protein-ligand interactions, including steered molecular dynamics and free energy landscape calculations.</p>
                     <p>Beyond biophysics, I have also participated in other projects for the analysis (and/or code developing for the analysis) of genetic, biochemical, and chemical data. Including approaches of machine and deep learning as well as bio- and chemo- informatics.</p>
-                    <a href="./AldoHR_CV.pdf" class="btn btn-primary mt-3" target="_blank">View Full CV</a>
+                    
+                    <div class="research-interest">
+                        <h5 class="text-primary"><i class="fas fa-flask me-2"></i>Research Interests</h5>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <ul>
+                                    <li>Protein Dynamics & Engineering</li>
+                                    <li>Computational Biophysics</li>
+                                    <li>Molecular Modeling & Simulations</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul>
+                                    <li>AI-driven Drug Discovery</li>
+                                    <li>Bioinformatics & Chemoinformatics</li>
+                                    <li>High-Performance Computing</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="./AldoHR_CV.pdf" class="btn btn-primary mt-3" target="_blank">
+                        <i class="fas fa-download me-2"></i>Download Full CV
+                    </a>
                 </div>
                 <div class="col-lg-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Personal Info</h5>
+                            <h5 class="card-title"><i class="fas fa-info-circle me-2 text-primary"></i>Personal Info</h5>
                             <ul class="list-unstyled">
                                 <li class="mb-2"><i class="fas fa-envelope me-2 text-primary"></i> aldo.hrodulfo@gmail.com</li>
                                 <li class="mb-2"><i class="fas fa-map-marker-alt me-2 text-primary"></i> Monterrey, Mexico</li>
                                 <li class="mb-2"><i class="fas fa-language me-2 text-primary"></i> Spanish (Native), English (C1)</li>
                                 <li class="mb-2"><i class="fas fa-globe me-2 text-primary"></i> <a href="https://aldhr.github.io/" target="_blank">aldhr.github.io</a></li>
+                                <li class="mb-2"><i class="fas fa-calendar me-2 text-primary"></i> PhD Defense: August 2024</li>
                             </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-graduation-cap me-2 text-primary"></i>Education</h5>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <h6 class="text-danger">PhD in Engineering and Biomedical Physics</h6>
+                                    <p class="small mb-1">CINVESTAV</p>
+                                    <p class="small text-muted">2020 - 2024</p>
+                                </div>
+                                <div class="timeline-item">
+                                    <h6 class="text-danger">MSc in Pharmaceutical Science</h6>
+                                    <p class="small mb-1">UANL</p>
+                                    <p class="small text-muted">2018 - 2020</p>
+                                </div>
+                                <div class="timeline-item">
+                                    <h6 class="text-danger">BSc in Biopharmaceutical Chemistry</h6>
+                                    <p class="small mb-1">UANL</p>
+                                    <p class="small text-muted">2013 - 2018</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -317,7 +431,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="text-primary">BSc in Biopharmaceutical Chemistry</h4>
+                            <h4 class="text-primary"><i class="fas fa-graduation-cap me-2"></i>BSc in Biopharmaceutical Chemistry</h4>
                             <p>As an undergraduate volunteer in Prof. Francisco Ávalos Alanís's Natural Products Chemistry Laboratory at Faculty of Chemistry at UANL, I synthesized, characterized, and screened compounds for potential anti-tuberculosis and anti-cancer activity. This experience refined my medicinal chemistry knowledge, synthetic methodologies, stereochemistry, and scaffold design for pharmacological applications.</p>
                         </div>
                     </div>
@@ -328,7 +442,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="text-primary">MSc in Pharmaceutical Science</h4>
+                            <h4 class="text-primary"><i class="fas fa-graduation-cap me-2"></i>MSc in Pharmaceutical Science</h4>
                             <p>Intrigued by molecular biology and genomics, I focused on how genetic mutations may drive disease outcomes during my master's. At the Immunogenetics lab from the Northeast Biomedical Research Center (CIBIN-IMSS), under the supervision of Dr. Beatriz Silva Ramírez, we investigated genomic biomarkers in the Mexican population for precision medicine and drug-related toxicity. Our experimental findings correlated NAT2 gene mutations with hepatotoxic outcomes in tuberculosis treatment. Recognizing a critical gap in the molecular-level explanation, together with Dr. Mauricio Carrillo-Tripp, we developed a computational framework integrating molecular modeling, HPC, and molecular dynamics to elucidate the atomic-level impact of these non-synonymous mutations, leading to a peer-reviewed publication.</p>
                         </div>
                     </div>
@@ -339,7 +453,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="text-primary">PhD in Biomedical Physics and Engineering</h4>
+                            <h4 class="text-primary"><i class="fas fa-graduation-cap me-2"></i>PhD in Biomedical Physics and Engineering</h4>
                             <p>Under Dr. Mauricio Carrillo-Tripp, I developed comprehensive expertise in Computational Biophysics and Molecular Modeling & Dynamics. My research showed that evolutionary pressure influences viral protein function by constraining conformational dynamics and preserving essential correlated motions. This involved conducting large-scale Molecular Dynamics simulations, automating workflows, enhanced sampling (AWH, umbrella sampling), free energy calculations (PMF), and flexibility assessments (clustering, RMSF, PCA).</p>
                             <p>Beyond biophysics, I possess advanced programming and HPC management skills, evidenced by first-author publications at the development of an in-house Bash-based pipeline for high-throughput, cavity-targeting molecular docking of protein-ligand complexes, ensuring convergence to minimal binding scores, as well as its python version. This framework showcases my expertise in managing high-volume, automated workflows to deliver biologically relevant results, as demonstrated by our findings on garlic compounds for COVID-19 and a SARS-CoV-2 drug repurposing pipeline.</p>
                         </div>
@@ -351,7 +465,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="text-primary">Research Philosophy & Future Directions</h4>
+                            <h4 class="text-primary"><i class="fas fa-search me-2"></i>Research Philosophy & Future Directions</h4>
                             <p>My research history reflects a clear collaborative mindset, a relentless drive for unraveling fundamental biological mechanisms, and an ambition to explore new biological frontiers, where interdisciplinary skills are paramount. I consistently demonstrate a strong ability to adapt and tackle complex challenges by pushing methodological boundaries, excelling in areas requiring novel computational approaches for biological discovery and insight.</p>
                             <p>My core research interest lies at the intersection of protein dynamics, computational biophysics for biomedical solutions, and rational protein design. Protein engineering is a primary interest, driven by the need to translate fundamental understanding into the creative design of novel molecular functions. I am particularly interested in applying knowledge of protein dynamics and conformational landscapes to engineer proteins for specific desired functions and biomedical applications.</p>
                         </div>
@@ -372,7 +486,7 @@
             
             <div class="row">
                 <div class="col-lg-12">
-                    <h4 class="mb-3">2025</h4>
+                    <h4 class="mb-3 text-primary">2025</h4>
                     
                     <div class="publication-item">
                         <h5>Extensive In-silico Target-Ligand Conformational Space Sampling of Garlic-Derived Sulfur Compounds Targeting COVID-19 Infection</h5>
@@ -386,7 +500,7 @@
                         <p><em>PLOS Computational Biology</em> (In Press, 2025)</p>
                     </div>
                     
-                    <h4 class="mb-3 mt-5">2022</h4>
+                    <h4 class="mb-3 mt-5 text-primary">2022</h4>
                     
                     <div class="publication-item">
                         <h5>Repurposing Drugs as Potential Therapeutics for the SARS-CoV-2 Viral Infection: Automatizing a Blind Molecular Docking High-throughput Pipeline</h5>
@@ -400,12 +514,20 @@
                         <p><em>Current Topics in Medicinal Chemistry</em>, 22(2), 109–131. <a href="https://doi.org/10.2174/1568026621666211122163156" target="_blank">https://doi.org/10.2174/1568026621666211122163156</a></p>
                     </div>
                     
-                    <h4 class="mb-3 mt-5">2021</h4>
+                    <h4 class="mb-3 mt-5 text-primary">2021</h4>
                     
                     <div class="publication-item">
                         <h5>NAT2 Polymorphisms Associated with the Development of Hepatotoxicity After First-line Tuberculosis Treatment in Mexican Patients: From Genotype to Molecular Structure Characterization</h5>
                         <p class="text-muted"><strong>Herrera-Rodulfo, A.</strong>, Carrillo-Tripp, M., Laura Yeverino-Gutierrez, M., Peñuelas-Urquides, K., Adiene González-Escalante, L., Bermúdez de León, M., & Silva-Ramirez, B.</p>
                         <p><em>Clinica Chimica Acta</em>, 519, 153–162. <a href="https://doi.org/10.1016/j.cca.2021.04.017" target="_blank">https://doi.org/10.1016/j.cca.2021.04.017</a></p>
+                    </div>
+                    
+                    <div class="mt-4 p-3 bg-white rounded border">
+                        <h5 class="text-primary">Manuscripts in Preparation</h5>
+                        <ul>
+                            <li><strong>Herrera-Rodulfo, A.</strong> et al. - The Role of Conformational Dynamics Conservation in the Structure-Function Paradigm: A Case Study on the RBD of SARS-CoV-2 Spike Protein Variants</li>
+                            <li><strong>Herrera-Rodulfo, A.</strong> et al. - Drug-target Interaction Miner: A Computational Framework for Protein-Ligand Interaction Analysis Using Modern Artificial Intelligence Architectures and Graph Theory</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -508,14 +630,16 @@
                         <div class="card-body text-center">
                             <h4 class="card-title">Interested in collaborating?</h4>
                             <p class="card-text">I'm always open to discussing new research opportunities, collaborations, or potential projects.</p>
-                            <a href="mailto:aldo.hrodulfo@gmail.com" class="btn btn-primary btn-lg mt-3">Send me an email</a>
+                            <a href="mailto:aldo.hrodulfo@gmail.com" class="btn btn-primary btn-lg mt-3">
+                                <i class="fas fa-envelope me-2"></i>Send me an email
+                            </a>
                             <div class="social-links mt-4">
-                                <a href="https://github.com/aldhr" target="_blank"><i class="fab fa-github"></i></a>
-                                <a href="https://www.linkedin.com/in/aldo-herrera-37894523a/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="https://twitter.com/aldhrod" target="_blank"><i class="fab fa-twitter"></i></a>
-                                <a href="https://scholar.google.com/citations?user=iTskABYAAAAJ&hl=es&oi=ao" target="_blank"><i class="fas fa-graduation-cap"></i></a>
-                                <a href="https://orcid.org/0000-0003-1279-7697" target="_blank"><i class="fab fa-orcid"></i></a>
-                                <a href="https://www.researchgate.net/profile/Aldo-Herrera-5" target="_blank"><i class="fab fa-researchgate"></i></a>
+                                <a href="https://github.com/aldhr" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                                <a href="https://www.linkedin.com/in/aldo-herrera-37894523a/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://twitter.com/aldhrod" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="https://scholar.google.com/citations?user=iTskABYAAAAJ&hl=es&oi=ao" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                                <a href="https://orcid.org/0000-0003-1279-7697" target="_blank" title="ORCID"><i class="fab fa-orcid"></i></a>
+                                <a href="https://www.researchgate.net/profile/Aldo-Herrera-5" target="_blank" title="ResearchGate"><i class="fab fa-researchgate"></i></a>
                             </div>
                         </div>
                     </div>
@@ -533,7 +657,7 @@
     </footer>
 
     <!-- Back to Top Button -->
-    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+    <button class="back-to-top"><i class="fas fa-arrow-up"></i></button>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
@@ -570,9 +694,21 @@
                         top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
+                    
+                    // Close mobile navbar after clicking
+                    const navbarToggler = document.querySelector('.navbar-toggler');
+                    const navbarCollapse = document.querySelector('.navbar-collapse');
+                    
+                    if (navbarCollapse.classList.contains('show')) {
+                        navbarToggler.click();
+                    }
                 }
             });
         });
-    </script>
-</body>
-</html>
+        
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 100) {
+                document.querySelector('.navbar').style.backgroundColor = 'rgba(44, 62, 80, 0.95)';
+                document.querySelector('.navbar').style.backdropFilter = 'blur(10px)';
+            }
