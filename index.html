@@ -180,7 +180,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--ac);outline-offset:
 <section id="publications">
 <div class="container">
   <h2 class="section-title" data-i="pub_title">Publications</h2>
-  <p class="muted small mb-0"><i class="fab fa-orcid me-1"></i><span data-i="pub_src">Updated automatically from my ORCID record.</span>
+  <p class="muted small mb-0"><i class="fab fa-orcid me-1"></i><span data-i="pub_src">Updated automatically from ORCID and OpenAlex (authors and citations).</span>
     <a href="https://orcid.org/0000-0003-1279-7697" target="_blank" rel="noopener" style="color:var(--ac)">orcid.org/0000-0003-1279-7697</a></p>
   <div id="pubs"><p class="mt-4 muted" data-i="pub_load">Loading publications…</p></div>
 </div>
@@ -264,7 +264,7 @@ n3b1:'Bajo la dirección del Dr. Mauricio Carrillo-Tripp desarrollé una amplia 
 n3b2:'Más allá de la biofísica, cuento con habilidades avanzadas de programación y manejo de HPC, evidenciadas por publicaciones como primer autor sobre el desarrollo de un pipeline propio en Bash para docking molecular de alto rendimiento dirigido a cavidades en complejos proteína-ligando, que asegura la convergencia a puntajes de unión mínimos, así como su versión en Python. Este marco demuestra mi experiencia en flujos automatizados de alto volumen que entregan resultados biológicamente relevantes, como lo muestran nuestros hallazgos sobre compuestos del ajo contra COVID-19 y un pipeline de reposicionamiento de fármacos contra SARS-CoV-2.',
 n4b1:'Mi trayectoria refleja una clara mentalidad colaborativa, un impulso constante por desentrañar mecanismos biológicos fundamentales y la ambición de explorar nuevas fronteras biológicas, donde las habilidades interdisciplinarias son esenciales. Me adapto con facilidad a problemas complejos al empujar los límites metodológicos, destacando en áreas que requieren enfoques computacionales novedosos para el descubrimiento y la comprensión biológica.',
 n4b2:'Mi interés central se ubica en la intersección entre la dinámica de proteínas, la biofísica computacional para soluciones biomédicas y el diseño racional de proteínas. La ingeniería de proteínas es un interés primordial, motivado por la necesidad de traducir el conocimiento fundamental en el diseño creativo de nuevas funciones moleculares. Me interesa en particular aplicar el conocimiento de la dinámica de proteínas y sus paisajes conformacionales para diseñar proteínas con funciones específicas y aplicaciones biomédicas.',
-pub_title:'Publicaciones',pub_src:'Se actualiza automáticamente desde mi registro de ORCID.',pub_load:'Cargando publicaciones…',pub_err:'No se pudo conectar con ORCID; se muestra la última lista guardada.',pub_none:'Sin año',
+pub_title:'Publicaciones',pub_src:'Se actualiza automáticamente desde ORCID y OpenAlex (autores y citas).',pub_load:'Cargando publicaciones…',pub_err:'No se pudo conectar con ORCID; se muestra la última lista guardada.',pub_none:'Sin año',
 s_title:'Habilidades técnicas',s1:'Herramientas computacionales moleculares',s2:'Programación y ciencia de datos',s3:'Laboratorio y habilidades blandas',
 c_title:'Portafolio de código',c1h:'Minero de interacciones fármaco-blanco',c1:'Extrae información proteína-ligando a partir de IDs del PDB en formato de grafo para redes neuronales de grafos.',
 c2h:'Pipeline en Bash',c2:'Automatiza el análisis de docking molecular en múltiples ciclos, procesa archivos a entradas de AutoDock Vina y da formato CSV a los resultados.',
@@ -306,41 +306,56 @@ const FALLBACK=[
 {y:2022,title:'Repurposing Drugs as Potential Therapeutics for the SARS-CoV-2 Viral Infection: Automatizing a Blind Molecular Docking High-throughput Pipeline',j:'Biomedical Engineering, IntechOpen',doi:'10.5772/intechopen.105792'},
 {y:2022,title:'Immunomodulatory Effects of Allium sativum L. and its Constituents Against Viral Infections and Metabolic Diseases',j:'Current Topics in Medicinal Chemistry',doi:'10.2174/1568026621666211122163156'},
 {y:2021,title:'NAT2 Polymorphisms Associated with the Development of Hepatotoxicity After First-line Tuberculosis Treatment in Mexican Patients: From Genotype to Molecular Structure Characterization',j:'Clinica Chimica Acta',doi:'10.1016/j.cca.2021.04.017'}];
+const SCOPUS_ID='';   // opcional: tu Scopus Author ID (solo números) para mostrar el botón de perfil
 let pubs=null,failed=false;
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const norm=s=>String(s||'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
+const cleanDoi=d=>d?String(d).replace(/^https?:\/\/(dx\.)?doi\.org\//i,'').toLowerCase():'';
+async function getJSON(u,h){const r=await fetch(u,h?{headers:h}:undefined);if(!r.ok)throw 0;return r.json()}
 async function loadPubs(){
+  let orc=[],oa=[];
   try{
-    const r=await fetch(`https://pub.orcid.org/v3.0/${ORCID}/works`,{headers:{Accept:'application/json'}});
-    if(!r.ok)throw 0;
-    const d=await r.json();
-    pubs=(d.group||[]).map(g=>{
+    const d=await getJSON(`https://pub.orcid.org/v3.0/${ORCID}/works`,{Accept:'application/json'});
+    orc=(d.group||[]).map(g=>{
       const w=g['work-summary'][0];
       const doi=(g['external-ids']?.['external-id']||[]).find(e=>e['external-id-type']==='doi');
-      const url=w.url?.value;
-      return{y:+(w['publication-date']?.year?.value)||0,title:w.title?.title?.value,j:w['journal-title']?.value,
-        doi:doi?.['external-id-value'],url,type:w.type};
+      return{y:+(w['publication-date']?.year?.value)||0,title:w.title?.title?.value,j:w['journal-title']?.value,doi:cleanDoi(doi?.['external-id-value']),url:w.url?.value};
     }).filter(p=>p.title);
-    if(!pubs.length)throw 0;
-  }catch(e){pubs=FALLBACK;failed=true}
+  }catch(e){}
+  try{
+    const d=await getJSON(`https://api.openalex.org/works?filter=author.orcid:https://orcid.org/${ORCID}&per-page=100&select=title,doi,publication_year,primary_location,authorships,cited_by_count`);
+    oa=(d.results||[]).map(w=>({y:w.publication_year||0,title:w.title,j:w.primary_location?.source?.display_name,doi:cleanDoi(w.doi),
+      authors:(w.authorships||[]).map(a=>a.author?.display_name).filter(Boolean),cites:w.cited_by_count||0}));
+  }catch(e){}
+  // Fusionar: ORCID es la base; OpenAlex aporta autores, citas y registros faltantes
+  const list=[...orc];
+  oa.forEach(o=>{
+    const m=list.find(p=>(p.doi&&p.doi===o.doi)||norm(p.title)===norm(o.title));
+    if(m){m.authors=o.authors;m.cites=o.cites;m.doi=m.doi||o.doi;m.j=m.j||o.j;m.y=m.y||o.y}else list.push(o);
+  });
+  if(list.length){pubs=list}else{pubs=FALLBACK;failed=true}
   renderPubs();
 }
 function renderPubs(){
   if(!pubs)return;
   const by={};pubs.forEach(p=>(by[p.y||0]??=[]).push(p));
   const years=Object.keys(by).map(Number).sort((a,b)=>(b||9999)-(a||9999));
+  const au=p=>{if(!p.authors?.length)return'';const n=p.authors.slice(0,10).map(a=>/herrera/i.test(a)?`<strong>${esc(a)}</strong>`:esc(a));
+    return`<p class="muted small mb-1">${n.join(', ')}${p.authors.length>10?' et al.':''}</p>`};
   $('#pubs').innerHTML=(failed?`<p class="muted small mt-3">${t('pub_err')}</p>`:'')+years.map(y=>
     `<h4 class="year">${y||t('pub_none')}</h4>`+by[y].map(p=>{
       const link=p.doi?`https://doi.org/${p.doi}`:p.url;
-      return`<div class="pub"><h5>${esc(p.title)}</h5><p class="mb-0 muted">${p.j?`<em>${esc(p.j)}</em>`:''}${link?` · <a href="${esc(link)}" target="_blank" rel="noopener">${p.doi?'DOI':'Link'} <i class="fas fa-arrow-up-right-from-square small"></i></a>`:''}</p></div>`}).join('')
+      return`<div class="pub"><h5>${esc(p.title)}</h5>${au(p)}<p class="mb-0 muted">${p.j?`<em>${esc(p.j)}</em>`:''}${link?` · <a href="${esc(link)}" target="_blank" rel="noopener">${p.doi?'DOI':'Link'} <i class="fas fa-arrow-up-right-from-square small"></i></a>`:''}${p.cites!=null?` · <i class="fas fa-quote-left small"></i> ${p.cites} ${lang==='es'?'citas':'citations'}`:''}</p></div>`}).join('')
   ).join('');
 }
 
 /* ---------- Varios ---------- */
 $('#yr').textContent=new Date().getFullYear();
-const top=$('#top');addEventListener('scroll',()=>top.style.display=scrollY>300?'block':'none');
-top.onclick=()=>scrollTo({top:0,behavior:'smooth'});
+const topBtn=$('#top');addEventListener('scroll',()=>topBtn.style.display=scrollY>300?'block':'none');
+topBtn.onclick=()=>scrollTo({top:0,behavior:'smooth'});
 $$('.navbar-nav .nav-link').forEach(a=>a.addEventListener('click',()=>{const c=$('#nav');if(c.classList.contains('show'))bootstrap.Collapse.getOrCreateInstance(c).hide()}));
 new bootstrap.ScrollSpy(document.body,{target:'#navbar',offset:100});
+if(SCOPUS_ID)$('#pubs').insertAdjacentHTML('beforebegin',`<a class="btn btn-ghost btn-sm mt-3" target="_blank" rel="noopener" href="https://www.scopus.com/authid/detail.uri?authorId=${SCOPUS_ID}"><i class="fas fa-book-open me-2"></i>Scopus</a>`);
 applyTheme();applyLang();loadPubs();
 </script>
 </body>
