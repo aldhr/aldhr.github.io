@@ -1,362 +1,330 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Aldo Herrera, PhD - Computational Biophysics and Protein Engineering">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Aldo Herrera, PhD | Computational Biophysics</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<meta name="description" content="Aldo Herrera, PhD - Computational Biophysics and Protein Engineering">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#1a1a1a;--bg2:#2a2a2a;--line:#3a3a3a;--tx:#e0e0e0;--mut:#b0b0b0;--ac:#ff6f00;--ac2:#ff8c33;--sh:rgba(0,0,0,.4);--on-ac:#1a1a1a}
-[data-bs-theme=light]{--bg:#fafaf8;--bg2:#efede8;--line:#d8d4cc;--tx:#222;--mut:#5c5c5c;--ac:#d85f00;--ac2:#b84f00;--sh:rgba(0,0,0,.12);--on-ac:#fff}
-html{scroll-behavior:smooth;scroll-padding-top:80px}
-body{font-family:'Open Sans',sans-serif;color:var(--tx);background:var(--bg);line-height:1.7;padding-top:72px;transition:background .3s,color .3s}
-h1,h2,h3,h4,h5,h6{font-family:'Montserrat',sans-serif;font-weight:600;color:var(--tx)}
-.navbar{background:var(--bg);border-bottom:2px solid var(--ac);box-shadow:0 4px 15px var(--sh)}
-.navbar-brand{font-family:'Montserrat';font-weight:700;color:var(--tx)!important}
-.nav-link{color:var(--mut)!important;font-weight:600;border-bottom:2px solid transparent}
-.nav-link:hover,.nav-link.active{color:var(--ac)!important;border-bottom-color:var(--ac)}
-.navbar-toggler{border-color:var(--line);color:var(--tx)}
-.tool{background:var(--bg2);color:var(--tx);border:1px solid var(--line);border-radius:6px;padding:.3rem .7rem;font-weight:600;font-size:.85rem}
-.tool:hover{border-color:var(--ac);color:var(--ac)}
-section{padding:5.5rem 0}
-section:nth-of-type(even){background:var(--bg2)}
-.hero{padding:90px 0 70px;background:var(--bg)!important}
-.hero .sub{color:var(--mut)}
-.profile-img,.profile-ph{width:240px;height:240px;border-radius:50%;border:6px solid var(--ac);object-fit:cover;box-shadow:0 0 20px rgba(255,111,0,.35)}
-.profile-ph{display:none;align-items:center;justify-content:center;font-size:4rem;background:var(--ac);color:var(--on-ac);margin:0 auto}
-.section-title{position:relative;margin-bottom:2.5rem;padding-bottom:.75rem;font-size:2.2rem;text-transform:uppercase;letter-spacing:1px}
-.section-title::after{content:'';position:absolute;bottom:0;left:0;width:80px;height:4px;background:var(--ac);border-radius:2px}
-.card{background:var(--bg2);border:1px solid var(--line);color:var(--tx);box-shadow:0 6px 20px var(--sh)}
-section:nth-of-type(even) .card{background:var(--bg)}
-.card-title{color:var(--ac);font-size:1.3rem}
-.btn-primary{--bs-btn-bg:var(--ac);--bs-btn-border-color:var(--ac);--bs-btn-color:var(--on-ac);--bs-btn-hover-bg:var(--ac2);--bs-btn-hover-border-color:var(--ac2);--bs-btn-hover-color:var(--on-ac);--bs-btn-active-bg:var(--ac2);--bs-btn-active-color:var(--on-ac);font-weight:600}
-.btn-ghost{background:var(--bg2);border:1px solid var(--line);color:var(--tx);font-weight:600}
-.btn-ghost:hover{border-color:var(--ac);color:var(--ac)}
-.social a{display:inline-flex;width:44px;height:44px;border-radius:50%;align-items:center;justify-content:center;background:var(--bg2);border:1px solid var(--line);color:var(--tx);margin:0 .3rem .5rem 0;text-decoration:none;transition:.25s}
-.social a:hover{background:var(--ac);color:var(--on-ac);transform:translateY(-4px)}
-.interest{background:var(--bg2);border-left:4px solid var(--ac);border-radius:10px;padding:1.5rem;margin:1.5rem 0}
-.interest li{color:var(--mut)}.interest i,.info li i{color:var(--ac)}
-.info li{color:var(--mut);font-size:.95rem}.info a{color:var(--ac)}
-.timeline{position:relative;padding-left:2rem}
-.timeline::before{content:'';position:absolute;left:7px;top:0;bottom:0;width:2px;background:var(--ac)}
-.tl-item{position:relative;margin-bottom:1.8rem}
-.tl-item::before{content:'';position:absolute;left:-2rem;top:6px;width:16px;height:16px;border-radius:50%;background:var(--ac);border:4px solid var(--bg2)}
-.tl-item h6{color:var(--ac)}.muted{color:var(--mut)}
-.accordion{--bs-accordion-bg:var(--bg);--bs-accordion-color:var(--tx);--bs-accordion-border-color:var(--line);--bs-accordion-btn-bg:var(--bg);--bs-accordion-btn-color:var(--tx);--bs-accordion-active-bg:var(--bg);--bs-accordion-active-color:var(--ac);--bs-accordion-btn-focus-box-shadow:0 0 0 .2rem rgba(255,111,0,.3)}
-.accordion-button{font-family:'Montserrat';font-weight:600}
-[data-bs-theme=dark] .accordion-button::after{filter:invert(1)}
-.pub{border-left:4px solid var(--ac);background:var(--bg);padding:1rem 1.25rem;border-radius:5px;margin-bottom:1rem;box-shadow:0 2px 10px var(--sh)}
-.pub h5{font-size:1.05rem}.pub a{color:var(--ac);text-decoration:none}.pub a:hover{text-decoration:underline}
-.year{color:var(--ac);margin:2rem 0 1rem}
-.badge-s{display:inline-block;background:var(--bg2);border:1px solid var(--line);padding:.45rem .9rem;border-radius:5px;margin:.25rem;font-size:.9rem;transition:.2s}
-.badge-s:hover{background:var(--ac);color:var(--on-ac)}
-footer{padding:2.5rem 0;border-top:2px solid var(--ac);color:var(--mut);background:var(--bg)}
-#top{position:fixed;right:24px;bottom:24px;width:50px;height:50px;border-radius:50%;border:0;background:var(--ac);color:var(--on-ac);display:none;z-index:1000}
-a:focus-visible,button:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
-@media(max-width:991px){.hero{text-align:center}.profile-img,.profile-ph{width:170px;height:170px}.section-title{font-size:1.7rem}}
-@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+:root{--bg:#f4f8fa;--surface:#fff;--ink:#17262e;--muted:#52666f;--line:#d3e0e5;--accent:#0b6b7c;--accent-ink:#fff;
+--serif:"Source Serif 4",Georgia,serif;--sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+:root[data-theme=dark]{--bg:#0e1a20;--surface:#15252d;--ink:#e3edf1;--muted:#9bb0b9;--line:#26404b;--accent:#5cc3d3;--accent-ink:#0e1a20}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:7.5rem}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.65 var(--sans);padding-bottom:env(safe-area-inset-bottom,0)}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+header{position:sticky;top:0;z-index:20;background:var(--surface);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:.75rem;max-width:62rem;margin:auto;padding:.6rem 1rem}
+.brand{font:700 1.05rem var(--serif);color:var(--ink);text-decoration:none}
+.tools{display:flex;gap:.5rem;align-items:center;flex:none}
+.lang{display:inline-flex;border:2px solid var(--accent);border-radius:999px;overflow:hidden}
+.lang button,.theme{font:600 .9rem var(--sans);border:0;background:none;color:var(--accent);padding:.45rem .9rem;min-height:2.5rem;cursor:pointer}
+.lang button[aria-pressed=true]{background:var(--accent);color:var(--accent-ink)}
+.theme{border:2px solid var(--accent);border-radius:999px;padding:.45rem .7rem}
+nav{max-width:62rem;margin:auto;display:flex;gap:.25rem;overflow-x:auto;padding:0 .75rem .4rem;scrollbar-width:none}
+nav a{white-space:nowrap;text-decoration:none;color:var(--muted);padding:.4rem .7rem;border-radius:.4rem;font-weight:500}
+nav a:hover{color:var(--ink);background:var(--bg)}
+main{max-width:62rem;margin:auto;padding:0 1rem}
+section{padding:3rem 0;border-bottom:1px solid var(--line)}
+h1,h2,h3,h4{font-family:var(--serif);line-height:1.2;margin:0 0 .6rem}
+h2{font-size:1.9rem;margin-bottom:1.2rem}
+h3{font-size:1.15rem}
+.hero{display:grid;gap:2rem;align-items:center;padding:3rem 0}
+.hero img{width:min(15rem,70%);aspect-ratio:1;object-fit:cover;border-radius:50%;border:4px solid var(--surface);box-shadow:0 0 0 2px var(--accent);justify-self:center}
+.kicker{color:var(--accent);font-weight:600;margin:0 0 .5rem}
+h1{font-size:clamp(2.4rem,9vw,4rem);letter-spacing:-.02em;margin:0 0 .5rem}
+.sub{font-size:1.2rem;color:var(--muted);margin:0 0 1.2rem}
+.links{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0}
+.links a{border:1px solid var(--line);background:var(--surface);padding:.35rem .75rem;border-radius:.4rem;text-decoration:none;font-size:.9rem;font-weight:500}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-ink);padding:.7rem 1.2rem;border-radius:.4rem;text-decoration:none;font-weight:600;margin:.25rem .5rem .25rem 0}
+.btn.alt{background:none;color:var(--accent);border:2px solid var(--accent)}
+.cols{display:grid;gap:2rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:.5rem;padding:1.2rem}
+.card h4{font-size:1rem;margin-bottom:.8rem}
+ul.plain{margin:0;padding-left:1.1rem}
+ul.plain li{margin:.25rem 0}
+.edu{margin-bottom:1rem}.edu h5{font:600 1rem var(--sans);margin:0}.edu p{margin:.1rem 0;color:var(--muted);font-size:.95rem}
+details{background:var(--surface);border:1px solid var(--line);border-radius:.5rem;margin-bottom:.7rem}
+summary{cursor:pointer;padding:1rem 1.2rem;font:700 1.1rem var(--serif);list-style:none;display:flex;justify-content:space-between;gap:1rem}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--accent);font-size:1.4rem;line-height:1}
+details[open] summary::after{content:"−"}
+details div{padding:0 1.2rem 1rem}
+.pub{padding:1rem 0;border-bottom:1px solid var(--line)}
+.pub h4{font-size:1.05rem;margin-bottom:.3rem}
+.pub .au{margin:0 0 .3rem;font-size:.95rem}
+.pub .meta{margin:0;color:var(--muted);font-size:.88rem}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.6rem}
+.tags span{background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:.2rem .7rem;font-size:.88rem}
+.grid{display:grid;gap:1rem}
+footer{text-align:center;color:var(--muted);padding:2rem 1rem;font-size:.9rem}
+@media(min-width:760px){.hero{grid-template-columns:1.4fr 1fr}.cols{grid-template-columns:1.6fr 1fr}.grid{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
-
-<nav id="navbar" class="navbar navbar-expand-lg fixed-top">
-<div class="container">
-  <a class="navbar-brand" href="#home">ALDO HERRERA, PHD</a>
-  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-label="Menu"><i class="fas fa-bars"></i></button>
-  <div class="collapse navbar-collapse" id="nav">
-    <ul class="navbar-nav ms-auto align-items-lg-center">
-      <li class="nav-item"><a class="nav-link" href="#about" data-i="n_about">About</a></li>
-      <li class="nav-item"><a class="nav-link" href="#research" data-i="n_res">Research</a></li>
-      <li class="nav-item"><a class="nav-link" href="#publications" data-i="n_pub">Publications</a></li>
-      <li class="nav-item"><a class="nav-link" href="#skills" data-i="n_skills">Skills</a></li>
-      <li class="nav-item"><a class="nav-link" href="#contact" data-i="n_contact">Contact</a></li>
-      <li class="nav-item ms-lg-3 my-2 my-lg-0"><button class="tool" id="langBtn" aria-label="Language"><i class="fas fa-language me-1"></i><span>ES</span></button>
-        <button class="tool ms-1" id="themeBtn" aria-label="Theme"><i class="fas fa-sun"></i></button></li>
-    </ul>
+<header>
+  <div class="bar">
+    <a class="brand" href="#home" data-es="DOCTOR ALDO HERRERA">ALDO HERRERA, PHD</a>
+    <div class="tools">
+      <div class="lang" role="group" aria-label="Language / Idioma">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="es" aria-pressed="false">ES</button>
+      </div>
+      <button type="button" class="theme" id="themeBtn" aria-label="Light / dark">◐</button>
+    </div>
   </div>
+  <nav aria-label="Main">
+    <a href="#about" data-es="Acerca de">About</a>
+    <a href="#research" data-es="Investigación">Research</a>
+    <a href="#publications" data-es="Publicaciones">Publications</a>
+    <a href="#skills" data-es="Habilidades">Skills</a>
+    <a href="#contact" data-es="Contacto">Contact</a>
+  </nav>
+</header>
+
+<main id="home">
+<div class="hero">
+  <div>
+    <p class="kicker" data-es="Biofísica computacional e ingeniería de proteínas">Computational Biophysics &amp; Protein Engineering</p>
+    <h1 data-es="Doctor Aldo Herrera">Aldo Herrera, PhD</h1>
+    <p class="sub" data-es="Modelado y dinámica molecular | Descubrimiento de fármacos con IA">Molecular Modeling &amp; Dynamics | AI-driven Drug Discovery</p>
+    <div class="links">
+      <a href="https://github.com/aldhr" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/aldo-herrera-37894523a/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://twitter.com/aldhrod" target="_blank" rel="noopener">Twitter</a>
+      <a href="https://scholar.google.com/citations?user=iTskABYAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+      <a href="https://orcid.org/0000-0003-1279-7697" target="_blank" rel="noopener">ORCID</a>
+      <a href="https://www.researchgate.net/profile/Aldo-Herrera-5" target="_blank" rel="noopener">ResearchGate</a>
+    </div>
+    <a class="btn" href="#research" data-es="Ver investigación">View Research</a>
+    <a class="btn alt" href="./AldoH_CV(27N).pdf" target="_blank" data-es="Descargar CV">Download CV</a>
+  </div>
+  <img src="assets/imgs/avatar2.jpg" alt="Aldo Herrera">
 </div>
-</nav>
-
-<section id="home" class="hero">
-<div class="container"><div class="row align-items-center flex-column-reverse flex-lg-row">
-  <div class="col-lg-8">
-    <h4 class="sub mb-2" data-i="h_field">Computational Biophysics &amp; Protein Engineering</h4>
-    <h1 class="display-3 fw-bold mb-3">Aldo Herrera, PhD</h1>
-    <p class="lead sub mb-4" data-i="h_sub">Molecular Modeling &amp; Dynamics | AI-driven Drug Discovery</p>
-    <div class="social">
-      <a href="https://github.com/aldhr" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
-      <a href="https://www.linkedin.com/in/aldo-herrera-37894523a/" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-      <a href="https://twitter.com/aldhrod" target="_blank" rel="noopener" title="Twitter"><i class="fab fa-twitter"></i></a>
-      <a href="https://scholar.google.com/citations?user=iTskABYAAAAJ" target="_blank" rel="noopener" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-      <a href="https://orcid.org/0000-0003-1279-7697" target="_blank" rel="noopener" title="ORCID"><i class="fab fa-orcid"></i></a>
-      <a href="https://www.researchgate.net/profile/Aldo-Herrera-5" target="_blank" rel="noopener" title="ResearchGate"><i class="fab fa-researchgate"></i></a>
-    </div>
-    <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-lg-start gap-3 mt-2">
-      <a href="#research" class="btn btn-primary btn-lg"><span data-i="h_btn1">View Research</span> <i class="fas fa-flask ms-2"></i></a>
-      <a href="./AldoH_CV(27N).pdf" class="btn btn-ghost btn-lg" target="_blank"><span data-i="h_btn2">Download CV</span> <i class="fas fa-download ms-2"></i></a>
-    </div>
-  </div>
-  <div class="col-lg-4 text-center">
-    <img src="assets/imgs/avatar2.jpg" alt="Aldo Herrera" class="profile-img" onerror="this.style.display='none';document.getElementById('ph').style.display='flex'">
-    <div id="ph" class="profile-ph"><i class="fas fa-user"></i></div>
-  </div>
-</div></div>
-</section>
 
 <section id="about">
-<div class="container">
-  <h2 class="section-title" data-i="a_title">About Me</h2>
-  <div class="row g-4">
-    <div class="col-lg-8">
-      <p class="lead mb-4" data-i="a_lead">I like to think of myself as a curious and self-motivated scientist that enjoys being surprised by biology.</p>
-      <p data-i="a_p1">I have focused my career on computational tools for the analysis of biomolecular systems. My projects are strongly related to molecular modelling, simulations of protein dynamics and protein-ligand interactions, including steered molecular dynamics and free energy landscape calculations.</p>
-      <p data-i="a_p2">Beyond biophysics, I have also participated in other projects for the analysis (and/or code developing for the analysis) of genetic, biochemical, and chemical data. Including approaches of machine and deep learning as well as bio- and chemo- informatics.</p>
-      <div class="interest">
-        <h5><i class="fas fa-flask me-2"></i><span data-i="a_int">Research Interests</span></h5>
-        <div class="row mt-3"><div class="col-md-6"><ul class="list-unstyled mb-0">
-          <li><i class="fas fa-arrow-right me-2"></i><span data-i="i1">Protein Dynamics &amp; Engineering</span></li>
-          <li><i class="fas fa-arrow-right me-2"></i><span data-i="i2">Computational Biophysics</span></li>
-          <li><i class="fas fa-arrow-right me-2"></i><span data-i="i3">Molecular Modeling &amp; Simulations</span></li></ul></div>
-        <div class="col-md-6"><ul class="list-unstyled mb-0">
-          <li><i class="fas fa-arrow-right me-2"></i><span data-i="i4">AI-driven Drug Discovery</span></li>
-          <li><i class="fas fa-arrow-right me-2"></i><span data-i="i5">Bioinformatics &amp; Chemoinformatics</span></li>
-          <li><i class="fas fa-arrow-right me-2"></i><span data-i="i6">High-Performance Computing</span></li></ul></div></div>
+  <h2 data-es="Acerca de mí">About Me</h2>
+  <div class="cols">
+    <div>
+      <p data-es="Me considero un científico curioso y automotivado que disfruta ser sorprendido por la biología.">I like to think of myself as a curious and self-motivated scientist that enjoys being surprised by biology.</p>
+      <p data-es="He enfocado mi carrera en herramientas computacionales para el análisis de sistemas biomoleculares. Mis proyectos se relacionan con el modelado molecular, simulaciones de dinámica de proteínas e interacciones proteína-ligando, incluyendo dinámica molecular dirigida y cálculos de paisajes de energía libre.">I have focused my career on computational tools for the analysis of biomolecular systems. My projects are strongly related to molecular modelling, simulations of protein dynamics and protein-ligand interactions, including steered molecular dynamics and free energy landscape calculations.</p>
+      <p data-es="Más allá de la biofísica, he participado en otros proyectos de análisis (y/o desarrollo de código para el análisis) de datos genéticos, bioquímicos y químicos, incluyendo enfoques de aprendizaje automático y profundo, así como bio- y quimioinformática.">Beyond biophysics, I have also participated in other projects for the analysis (and/or code developing for the analysis) of genetic, biochemical, and chemical data. Including approaches of machine and deep learning as well as bio- and chemo- informatics.</p>
+      <h3 data-es="Intereses de investigación">Research Interests</h3>
+      <div class="grid">
+        <ul class="plain">
+          <li data-es="Dinámica e ingeniería de proteínas">Protein Dynamics &amp; Engineering</li>
+          <li data-es="Biofísica computacional">Computational Biophysics</li>
+          <li data-es="Modelado y simulaciones moleculares">Molecular Modeling &amp; Simulations</li>
+        </ul>
+        <ul class="plain">
+          <li data-es="Descubrimiento de fármacos con IA">AI-driven Drug Discovery</li>
+          <li data-es="Bioinformática y quimioinformática">Bioinformatics &amp; Chemoinformatics</li>
+          <li data-es="Cómputo de alto rendimiento">High-Performance Computing</li>
+        </ul>
       </div>
-      <a href="./AldoH_CV(27N).pdf" class="btn btn-primary mt-2" target="_blank"><i class="fas fa-file-pdf me-2"></i><span data-i="a_cv">View Full CV</span></a>
+      <p><a href="./AldoH_CV(27N).pdf" target="_blank" data-es="Ver CV completo">View Full CV</a></p>
     </div>
-    <div class="col-lg-4">
-      <div class="card mb-4"><div class="card-body">
-        <h5 class="card-title"><i class="fas fa-info-circle me-2"></i><span data-i="p_title">Personal Info</span></h5>
-        <ul class="list-unstyled info mb-0">
-          <li class="mb-2"><i class="fas fa-envelope me-2"></i>aldo.hrodulfo@gmail.com</li>
-          <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i><span data-i="p_loc">Monterrey, Mexico</span></li>
-          <li class="mb-2"><i class="fas fa-language me-2"></i><span data-i="p_lang">Spanish (Native), English (C1)</span></li>
-          <li class="mb-2"><i class="fas fa-globe me-2"></i><a href="https://aldhr.github.io/" target="_blank">aldhr.github.io</a></li>
-          <li><i class="fas fa-id-badge me-2"></i>ORCID: 0000-0003-1279-7697</li>
-        </ul></div></div>
-      <div class="card"><div class="card-body">
-        <h5 class="card-title"><i class="fas fa-graduation-cap me-2"></i><span data-i="e_title">Education</span></h5>
-        <div class="timeline mt-3">
-          <div class="tl-item"><h6 data-i="e1">PhD in Biomedical Engineering and Physics</h6>
-            <p class="small mb-1">CINVESTAV, Monterrey Unit</p><p class="small muted">2020 - 2025</p>
-            <p class="small" data-i="e1t"><em>Thesis: The Role of Conformational Dynamics Conservation in the Structure-Function Paradigm: A Case Study on the RBD of SARS-CoV-2 Spike Protein Variants.</em></p></div>
-          <div class="tl-item"><h6 data-i="e2">MSc in Pharmaceutical Science</h6>
-            <p class="small mb-1">Autonomous University of Nuevo León (UANL)</p><p class="small muted">2018 - 2020</p>
-            <p class="small" data-i="e2t"><em>Thesis: Analysis of N-acetyltransferase 2 (NAT2) gene polymorphisms as markers of liver damage from first-line tuberculosis treatment in a population from northeastern Mexico, and molecular dynamics studies.</em></p></div>
-          <div class="tl-item mb-0"><h6 data-i="e3">BSc in Biopharmaceutical Chemistry</h6>
-            <p class="small mb-1">Autonomous University of Nuevo León (UANL)</p><p class="small muted mb-0">2013 - 2018</p></div>
-        </div></div></div>
-    </div>
+    <aside>
+      <div class="card">
+        <h4 data-es="Información personal">Personal Info</h4>
+        <ul class="plain">
+          <li><a href="mailto:aldo.hrodulfo@gmail.com">aldo.hrodulfo@gmail.com</a></li>
+          <li data-es="Monterrey, México">Monterrey, Mexico</li>
+          <li data-es="Español (nativo), inglés (C1)">Spanish (Native), English (C1)</li>
+          <li><a href="https://aldhr.github.io/">aldhr.github.io</a></li>
+          <li>ORCID: 0000-0003-1279-7697</li>
+        </ul>
+      </div>
+      <div class="card" style="margin-top:1rem">
+        <h4 data-es="Formación">Education</h4>
+        <div class="edu"><h5 data-es="Doctorado en Ciencias en Ingeniería y Física Biomédica">PhD in Biomedical Engineering and Physics</h5>
+          <p data-es="CINVESTAV, Unidad Monterrey">CINVESTAV, Monterrey Unit</p><p>2020 - 2025</p>
+          <p><em data-es="Tesis: El papel de la conservación de la dinámica conformacional en el paradigma estructura-función: un caso de estudio en el RBD de variantes de la proteína Spike de SARS-CoV-2.">Thesis: The Role of Conformational Dynamics Conservation in the Structure-Function Paradigm: A Case Study on the RBD of SARS-CoV-2 Spike Protein Variants.</em></p></div>
+        <div class="edu"><h5 data-es="Maestría en Ciencias con Orientación en Farmacia">MSc in Pharmaceutical Science</h5>
+          <p data-es="Universidad Autónoma de Nuevo León (UANL)">Autonomous University of Nuevo León (UANL)</p><p>2018 - 2020</p>
+          <p><em data-es="Tesis: Análisis de polimorfismos del gen N-acetiltransferasa 2 (NAT2) como marcadores de daño hepático por el tratamiento antituberculoso de primera línea en una población del noreste de México, y estudios de dinámica molecular.">Thesis: Analysis of N-acetyltransferase 2 (NAT2) gene polymorphisms as markers of liver damage from first-line tuberculosis treatment in a population from northeastern Mexico, and molecular dynamics studies.</em></p></div>
+        <div class="edu"><h5 data-es="Químico Farmacéutico Biólogo (QFB)">BSc in Biopharmaceutical Chemistry</h5>
+          <p data-es="Universidad Autónoma de Nuevo León (UANL)">Autonomous University of Nuevo León (UANL)</p><p>2013 - 2018</p></div>
+      </div>
+    </aside>
   </div>
-</div>
 </section>
 
 <section id="research">
-<div class="container">
-  <h2 class="section-title" data-i="r_title">Research Narrative</h2>
-  <p class="muted mb-4" data-i="r_intro">Click on any stage of my career to read the full story.</p>
-  <div class="accordion" id="narr">
-    <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#n1"><i class="fas fa-graduation-cap me-2"></i><span data-i="n1h">BSc in Biopharmaceutical Chemistry</span></button></h3>
-      <div id="n1" class="accordion-collapse collapse" data-bs-parent="#narr"><div class="accordion-body">
-        <p class="mb-0" data-i="n1b">As an undergraduate volunteer in Prof. Francisco Ávalos Alanís's Natural Products Chemistry Laboratory at Faculty of Chemistry at UANL, I synthesized, characterized, and screened compounds for potential anti-tuberculosis and anti-cancer activity. This experience refined my medicinal chemistry knowledge, synthetic methodologies, stereochemistry, and scaffold design for pharmacological applications.</p></div></div></div>
-    <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#n2"><i class="fas fa-microscope me-2"></i><span data-i="n2h">MSc in Pharmaceutical Science</span></button></h3>
-      <div id="n2" class="accordion-collapse collapse" data-bs-parent="#narr"><div class="accordion-body">
-        <p class="mb-0" data-i="n2b">Intrigued by molecular biology and genomics, I focused on how genetic mutations may drive disease outcomes during my master's. At the Immunogenetics lab from the Northeast Biomedical Research Center (CIBIN-IMSS), under the supervision of Dr. Beatriz Silva Ramírez, we investigated genomic biomarkers in the Mexican population for precision medicine and drug-related toxicity. Our experimental findings correlated NAT2 gene mutations with hepatotoxic outcomes in tuberculosis treatment. Recognizing a critical gap in the molecular-level explanation, together with Dr. Mauricio Carrillo-Tripp, we developed a computational framework integrating molecular modeling, HPC, and molecular dynamics to elucidate the atomic-level impact of these non-synonymous mutations, leading to a peer-reviewed publication.</p></div></div></div>
-    <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#n3"><i class="fas fa-atom me-2"></i><span data-i="n3h">PhD in Biomedical Physics and Engineering</span></button></h3>
-      <div id="n3" class="accordion-collapse collapse" data-bs-parent="#narr"><div class="accordion-body">
-        <p data-i="n3b1">Under Dr. Mauricio Carrillo-Tripp, I developed comprehensive expertise in Computational Biophysics and Molecular Modeling &amp; Dynamics. My research showed that evolutionary pressure influences viral protein function by constraining conformational dynamics and preserving essential correlated motions. This involved conducting large-scale Molecular Dynamics simulations, automating workflows, enhanced sampling (AWH, umbrella sampling), free energy calculations (PMF), and flexibility assessments (clustering, RMSF, PCA).</p>
-        <p class="mb-0" data-i="n3b2">Beyond biophysics, I possess advanced programming and HPC management skills, evidenced by first-author publications at the development of an in-house Bash-based pipeline for high-throughput, cavity-targeting molecular docking of protein-ligand complexes, ensuring convergence to minimal binding scores, as well as its python version. This framework showcases my expertise in managing high-volume, automated workflows to deliver biologically relevant results, as demonstrated by our findings on garlic compounds for COVID-19 and a SARS-CoV-2 drug repurposing pipeline.</p></div></div></div>
-    <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#n4"><i class="fas fa-lightbulb me-2"></i><span data-i="n4h">Research Philosophy &amp; Future Directions</span></button></h3>
-      <div id="n4" class="accordion-collapse collapse" data-bs-parent="#narr"><div class="accordion-body">
-        <p data-i="n4b1">My research history reflects a clear collaborative mindset, a relentless drive for unraveling fundamental biological mechanisms, and an ambition to explore new biological frontiers, where interdisciplinary skills are paramount. I consistently demonstrate a strong ability to adapt and tackle complex challenges by pushing methodological boundaries, excelling in areas requiring novel computational approaches for biological discovery and insight.</p>
-        <p class="mb-0" data-i="n4b2">My core research interest lies at the intersection of protein dynamics, computational biophysics for biomedical solutions, and rational protein design. Protein engineering is a primary interest, driven by the need to translate fundamental understanding into the creative design of novel molecular functions. I am particularly interested in applying knowledge of protein dynamics and conformational landscapes to engineer proteins for specific desired functions and biomedical applications.</p></div></div></div>
-  </div>
-</div>
+  <h2 data-es="Trayectoria de investigación">Research Narrative</h2>
+  <p style="color:var(--muted)" data-es="Haz clic en cualquier etapa de mi trayectoria para leer la historia completa.">Click on any stage of my career to read the full story.</p>
+  <details>
+    <summary><span data-es="Químico Farmacéutico Biólogo (QFB)">BSc in Biopharmaceutical Chemistry</span></summary>
+    <div><p data-es="Como voluntario de pregrado en el Laboratorio de Química de Productos Naturales del Prof. Francisco Ávalos Alanís, en la Facultad de Ciencias Químicas de la UANL, sinteticé, caractericé y evalué compuestos con potencial actividad antituberculosa y anticancerígena. Esta experiencia afinó mis conocimientos de química medicinal, metodologías sintéticas, estereoquímica y diseño de andamios moleculares para aplicaciones farmacológicas.">As an undergraduate volunteer in Prof. Francisco Ávalos Alanís's Natural Products Chemistry Laboratory at Faculty of Chemistry at UANL, I synthesized, characterized, and screened compounds for potential anti-tuberculosis and anti-cancer activity. This experience refined my medicinal chemistry knowledge, synthetic methodologies, stereochemistry, and scaffold design for pharmacological applications.</p></div>
+  </details>
+  <details>
+    <summary><span data-es="Maestría en Ciencias con Orientación en Farmacia">MSc in Pharmaceutical Science</span></summary>
+    <div><p data-es="Intrigado por la biología molecular y la genómica, durante la maestría me enfoqué en cómo las mutaciones genéticas pueden determinar el curso de las enfermedades. En el laboratorio de Inmunogenética del Centro de Investigación Biomédica del Noreste (CIBIN-IMSS), bajo la dirección de la Dra. Beatriz Silva Ramírez, investigamos biomarcadores genómicos en población mexicana para la medicina de precisión y la toxicidad por fármacos. Nuestros hallazgos experimentales correlacionaron mutaciones del gen NAT2 con hepatotoxicidad en el tratamiento de la tuberculosis. Al identificar un vacío en la explicación a nivel molecular, junto con el Dr. Mauricio Carrillo-Tripp desarrollamos un marco computacional que integra modelado molecular, HPC y dinámica molecular para dilucidar el impacto atómico de estas mutaciones no sinónimas, lo que derivó en una publicación arbitrada.">Intrigued by molecular biology and genomics, I focused on how genetic mutations may drive disease outcomes during my master's. At the Immunogenetics lab from the Northeast Biomedical Research Center (CIBIN-IMSS), under the supervision of Dr. Beatriz Silva Ramírez, we investigated genomic biomarkers in the Mexican population for precision medicine and drug-related toxicity. Our experimental findings correlated NAT2 gene mutations with hepatotoxic outcomes in tuberculosis treatment. Recognizing a critical gap in the molecular-level explanation, together with Dr. Mauricio Carrillo-Tripp, we developed a computational framework integrating molecular modeling, HPC, and molecular dynamics to elucidate the atomic-level impact of these non-synonymous mutations, leading to a peer-reviewed publication.</p></div>
+  </details>
+  <details>
+    <summary><span data-es="Doctorado en Ciencias en Ingeniería y Física Biomédica">PhD in Biomedical Physics and Engineering</span></summary>
+    <div><p data-es="Bajo la dirección del Dr. Mauricio Carrillo-Tripp desarrollé una amplia experiencia en biofísica computacional y en modelado y dinámica molecular. Mi investigación mostró que la presión evolutiva influye en la función de las proteínas virales al restringir su dinámica conformacional y preservar movimientos correlacionados esenciales. Esto implicó simulaciones de dinámica molecular a gran escala, automatización de flujos de trabajo, muestreo mejorado (AWH, umbrella sampling), cálculos de energía libre (PMF) y evaluaciones de flexibilidad (clustering, RMSF, PCA).">Under Dr. Mauricio Carrillo-Tripp, I developed comprehensive expertise in Computational Biophysics and Molecular Modeling &amp; Dynamics. My research showed that evolutionary pressure influences viral protein function by constraining conformational dynamics and preserving essential correlated motions. This involved conducting large-scale Molecular Dynamics simulations, automating workflows, enhanced sampling (AWH, umbrella sampling), free energy calculations (PMF), and flexibility assessments (clustering, RMSF, PCA).</p>
+    <p data-es="Más allá de la biofísica, cuento con habilidades avanzadas de programación y manejo de HPC, evidenciadas por publicaciones como primer autor sobre el desarrollo de un pipeline propio en Bash para docking molecular de alto rendimiento dirigido a cavidades en complejos proteína-ligando, que asegura la convergencia a puntajes de unión mínimos, así como su versión en Python. Este marco demuestra mi experiencia en flujos automatizados de alto volumen que entregan resultados biológicamente relevantes, como lo muestran nuestros hallazgos sobre compuestos del ajo contra COVID-19 y un pipeline de reposicionamiento de fármacos contra SARS-CoV-2.">Beyond biophysics, I possess advanced programming and HPC management skills, evidenced by first-author publications at the development of an in-house Bash-based pipeline for high-throughput, cavity-targeting molecular docking of protein-ligand complexes, ensuring convergence to minimal binding scores, as well as its python version. This framework showcases my expertise in managing high-volume, automated workflows to deliver biologically relevant results, as demonstrated by our findings on garlic compounds for COVID-19 and a SARS-CoV-2 drug repurposing pipeline.</p></div>
+  </details>
+  <details>
+    <summary><span data-es="Filosofía de investigación y direcciones futuras">Research Philosophy &amp; Future Directions</span></summary>
+    <div><p data-es="Mi trayectoria refleja una clara mentalidad colaborativa, un impulso constante por desentrañar mecanismos biológicos fundamentales y la ambición de explorar nuevas fronteras biológicas, donde las habilidades interdisciplinarias son esenciales. Me adapto con facilidad a problemas complejos al empujar los límites metodológicos, destacando en áreas que requieren enfoques computacionales novedosos para el descubrimiento y la comprensión biológica.">My research history reflects a clear collaborative mindset, a relentless drive for unraveling fundamental biological mechanisms, and an ambition to explore new biological frontiers, where interdisciplinary skills are paramount. I consistently demonstrate a strong ability to adapt and tackle complex challenges by pushing methodological boundaries, excelling in areas requiring novel computational approaches for biological discovery and insight.</p>
+    <p data-es="Mi interés central se ubica en la intersección entre la dinámica de proteínas, la biofísica computacional para soluciones biomédicas y el diseño racional de proteínas. La ingeniería de proteínas es un interés primordial, motivado por la necesidad de traducir el conocimiento fundamental en el diseño creativo de nuevas funciones moleculares. Me interesa en particular aplicar el conocimiento de la dinámica de proteínas y sus paisajes conformacionales para diseñar proteínas con funciones específicas y aplicaciones biomédicas.">My core research interest lies at the intersection of protein dynamics, computational biophysics for biomedical solutions, and rational protein design. Protein engineering is a primary interest, driven by the need to translate fundamental understanding into the creative design of novel molecular functions. I am particularly interested in applying knowledge of protein dynamics and conformational landscapes to engineer proteins for specific desired functions and biomedical applications.</p></div>
+  </details>
 </section>
 
 <section id="publications">
-<div class="container">
-  <h2 class="section-title" data-i="pub_title">Publications</h2>
-  <p class="muted small mb-0"><i class="fab fa-orcid me-1"></i><span data-i="pub_src">Updated automatically from ORCID and OpenAlex (authors and citations).</span>
-    <a href="https://orcid.org/0000-0003-1279-7697" target="_blank" rel="noopener" style="color:var(--ac)">orcid.org/0000-0003-1279-7697</a></p>
-  <div id="pubs"><p class="mt-4 muted" data-i="pub_load">Loading publications…</p></div>
-</div>
+  <h2 data-es="Publicaciones">Publications</h2>
+  <p style="color:var(--muted)"><span data-es="Se actualiza automáticamente desde ORCID y OpenAlex (autores y citas).">Updated automatically from ORCID and OpenAlex (authors and citations).</span> <a href="https://orcid.org/0000-0003-1279-7697" target="_blank" rel="noopener">orcid.org/0000-0003-1279-7697</a></p>
+  <div id="pub-list" aria-live="polite"></div>
 </section>
 
 <section id="skills">
-<div class="container">
-  <h2 class="section-title" data-i="s_title">Technical Skills</h2>
-  <div class="row g-4">
-    <div class="col-lg-4"><div class="card h-100"><div class="card-body">
-      <h4 class="card-title"><i class="fas fa-atom me-2"></i><span data-i="s1">Molecular Computational Tools</span></h4>
-      <div class="mt-3" data-b="GROMACS,RDKit,AutoDock,Vina,CHARMM,AMBER,NAMD,OpenMM,PyMOL,Chimera,Biopython,MDAnalysis,PLIP,PyRosetta"></div>
-      <div data-b-i="High-Throughput Virtual Screening|Molecular Docking|Free Energy Calculations|Molecular Modeling|PCA Analysis|Hydrogen Bond Analysis"></div>
-    </div></div></div>
-    <div class="col-lg-4"><div class="card h-100"><div class="card-body">
-      <h4 class="card-title"><i class="fas fa-code me-2"></i><span data-i="s2">Programming &amp; Data Science</span></h4>
-      <div class="mt-3" data-b="Python,R,Bash,Nextflow,Pandas,Matplotlib,Seaborn,NumPy,SciPy,Scikit-learn,PyTorch,TensorFlow,Slurm"></div>
-      <div data-b-i="HPC Environments|Linux/Unix Systems|Data Visualization"></div>
-    </div></div></div>
-    <div class="col-lg-4"><div class="card h-100"><div class="card-body">
-      <h4 class="card-title"><i class="fas fa-flask me-2"></i><span data-i="s3">Laboratory &amp; Soft Skills</span></h4>
-      <div class="mt-3" data-b-i="Micropipette|Solution Preparation|Centrifugation|UV-Vis Spectrophotometry|Titration|Bacterial Culture|Gram Staining|Autoclaving|PCR|Critical Thinking|Problem Solving|Team Collaboration|Adaptability|Project Management|Scientific Communication"></div>
-    </div></div></div>
+  <h2 data-es="Habilidades técnicas">Technical Skills</h2>
+  <div class="grid g3">
+    <div class="card"><h4 data-es="Herramientas computacionales moleculares">Molecular Computational Tools</h4>
+      <div class="tags" data-t="GROMACS,RDKit,AutoDock,Vina,CHARMM,AMBER,NAMD,OpenMM,PyMOL,Chimera,Biopython,MDAnalysis,PLIP,PyRosetta"></div>
+      <div class="tags" data-ti="High-Throughput Virtual Screening|Molecular Docking|Free Energy Calculations|Molecular Modeling|PCA Analysis|Hydrogen Bond Analysis"></div></div>
+    <div class="card"><h4 data-es="Programación y ciencia de datos">Programming &amp; Data Science</h4>
+      <div class="tags" data-t="Python,R,Bash,Nextflow,Pandas,Matplotlib,Seaborn,NumPy,SciPy,Scikit-learn,PyTorch,TensorFlow,Slurm"></div>
+      <div class="tags" data-ti="HPC Environments|Linux/Unix Systems|Data Visualization"></div></div>
+    <div class="card"><h4 data-es="Laboratorio y habilidades blandas">Laboratory &amp; Soft Skills</h4>
+      <div class="tags" data-ti="Micropipette|Solution Preparation|Centrifugation|UV-Vis Spectrophotometry|Titration|Bacterial Culture|Gram Staining|Autoclaving|PCR|Critical Thinking|Problem Solving|Team Collaboration|Adaptability|Project Management|Scientific Communication"></div></div>
   </div>
-  <div class="card mt-4"><div class="card-body">
-    <h4 class="card-title"><i class="fas fa-laptop-code me-2"></i><span data-i="c_title">Coding Portfolio</span></h4>
-    <div class="row">
-      <div class="col-md-6">
-        <h6 class="mt-3" style="color:var(--ac)" data-i="c1h">Drug-target interaction miner</h6><p data-i="c1">Extracts protein-ligand information from PDB IDs into graph format for Graph Neural Network input.</p>
-        <h6 class="mt-3" style="color:var(--ac)" data-i="c2h">Bash-Scripting Pipeline</h6><p data-i="c2">Automates multiple-cycle molecular docking analysis, processes files into AutoDock VINA inputs, formats output into CSV for further analysis.</p>
-      </div>
-      <div class="col-md-6">
-        <h6 class="mt-3" style="color:var(--ac)" data-i="c3h">Cheminformatics Analysis Notebooks</h6><p data-i="c3">Analyzes distribution of molecular docking sets, visualizes protein frequent electrostatic interactions.</p>
-        <h6 class="mt-3" style="color:var(--ac)" data-i="c4h">Colab notebooks</h6><p data-i="c4">Protein-DNA docking &amp; Protein-Ligand molecular dynamics simulations.</p>
-      </div>
-    </div>
-    <div class="text-center mt-3"><a href="https://github.com/aldhr" class="btn btn-primary" target="_blank"><i class="fab fa-github me-2"></i><span data-i="c_btn">View My GitHub</span></a></div>
-  </div></div>
-</div>
+  <h3 style="margin-top:2rem" data-es="Portafolio de código">Coding Portfolio</h3>
+  <div class="grid">
+    <div class="card"><h4 data-es="Minero de interacciones fármaco-blanco">Drug-target interaction miner</h4><p data-es="Extrae información proteína-ligando a partir de IDs del PDB en formato de grafo para redes neuronales de grafos.">Extracts protein-ligand information from PDB IDs into graph format for Graph Neural Network input.</p></div>
+    <div class="card"><h4 data-es="Pipeline en Bash">Bash-Scripting Pipeline</h4><p data-es="Automatiza el análisis de docking molecular en múltiples ciclos, procesa archivos a entradas de AutoDock Vina y da formato CSV a los resultados.">Automates multiple-cycle molecular docking analysis, processes files into AutoDock VINA inputs, formats output into CSV for further analysis.</p></div>
+    <div class="card"><h4 data-es="Notebooks de quimioinformática">Cheminformatics Analysis Notebooks</h4><p data-es="Analiza la distribución de conjuntos de docking molecular y visualiza interacciones electrostáticas frecuentes en proteínas.">Analyzes distribution of molecular docking sets, visualizes protein frequent electrostatic interactions.</p></div>
+    <div class="card"><h4 data-es="Notebooks de Colab">Colab notebooks</h4><p data-es="Docking proteína-ADN y simulaciones de dinámica molecular proteína-ligando.">Protein-DNA docking &amp; Protein-Ligand molecular dynamics simulations.</p></div>
+  </div>
+  <p><a class="btn" href="https://github.com/aldhr" target="_blank" rel="noopener" data-es="Ver mi GitHub">View My GitHub</a></p>
 </section>
 
-<section id="contact">
-<div class="container">
-  <h2 class="section-title" data-i="k_title">Get In Touch</h2>
-  <div class="row"><div class="col-lg-8 mx-auto"><div class="card"><div class="card-body text-center">
-    <h4 class="card-title" data-i="k_h">Interested in collaborating?</h4>
-    <p data-i="k_p">I'm always open to discussing new research opportunities, collaborations, or potential projects.</p>
-    <a href="mailto:aldo.hrodulfo@gmail.com" class="btn btn-primary btn-lg mt-2"><i class="fas fa-envelope me-2"></i><span data-i="k_btn">Send me an email</span></a>
-  </div></div></div></div>
-</div>
+<section id="contact" style="border:0">
+  <h2 data-es="Contacto">Get In Touch</h2>
+  <h3 data-es="¿Te interesa colaborar?">Interested in collaborating?</h3>
+  <p data-es="Siempre estoy abierto a conversar sobre nuevas oportunidades de investigación, colaboraciones o proyectos.">I'm always open to discussing new research opportunities, collaborations, or potential projects.</p>
+  <a class="btn" href="mailto:aldo.hrodulfo@gmail.com" data-es="Escríbeme un correo">Send me an email</a>
 </section>
+</main>
+<footer>© <span id="yr"></span> <span data-es="Doctor Aldo Herrera.">Aldo Herrera, PhD.</span> <span data-es="Todos los derechos reservados.">All rights reserved.</span></footer>
 
-<footer><div class="container text-center">
-  <p class="mb-1">&copy; <span id="yr"></span> Aldo Herrera, PhD. <span data-i="f_rights">All rights reserved.</span></p>
-</div></footer>
-<button id="top" aria-label="Top"><i class="fas fa-arrow-up"></i></button>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-const ORCID='0000-0003-1279-7697';
-const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
-const ls={get:k=>{try{return localStorage.getItem(k)}catch(e){return null}},set:(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}}};
+var ORCID="0000-0003-1279-7697", lang="en", pubs=null, failed=false;
+var $$=function(s){return Array.prototype.slice.call(document.querySelectorAll(s))};
+var ls={get:function(k){try{return localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+var T={en:{cites:"citations",loading:"Loading publications…",err:"Could not reach ORCID; showing the last saved list.",none:"No year"},
+       es:{cites:"citas",loading:"Cargando publicaciones…",err:"No se pudo conectar con ORCID; se muestra la última lista guardada.",none:"Sin año"}};
+// Etiquetas descriptivas (las herramientas técnicas no se traducen)
+var B={"High-Throughput Virtual Screening":"Cribado virtual de alto rendimiento","Molecular Docking":"Docking molecular","Free Energy Calculations":"Cálculos de energía libre","Molecular Modeling":"Modelado molecular","PCA Analysis":"Análisis PCA","Hydrogen Bond Analysis":"Análisis de puentes de hidrógeno","HPC Environments":"Entornos HPC","Linux/Unix Systems":"Sistemas Linux/Unix","Data Visualization":"Visualización de datos","Micropipette":"Micropipeteo","Solution Preparation":"Preparación de soluciones","Centrifugation":"Centrifugación","UV-Vis Spectrophotometry":"Espectrofotometría UV-Vis","Titration":"Titulación","Bacterial Culture":"Cultivo bacteriano","Gram Staining":"Tinción de Gram","Autoclaving":"Uso de autoclave","PCR":"PCR","Critical Thinking":"Pensamiento crítico","Problem Solving":"Resolución de problemas","Team Collaboration":"Trabajo en equipo","Adaptability":"Adaptabilidad","Project Management":"Gestión de proyectos","Scientific Communication":"Comunicación científica"};
+var esc=function(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})};
+var norm=function(s){return String(s||"").toLowerCase().replace(/[^a-z0-9]+/g," ").trim()};
 
-/* ---------- Traducción: el inglés vive en el HTML; aquí solo el español ---------- */
-const ES={
-n_about:'Acerca de',n_res:'Investigación',n_pub:'Publicaciones',n_skills:'Habilidades',n_contact:'Contacto',
-h_field:'Biofísica computacional e ingeniería de proteínas',h_sub:'Modelado y dinámica molecular | Descubrimiento de fármacos con IA',h_btn1:'Ver investigación',h_btn2:'Descargar CV',
-a_title:'Acerca de mí',a_lead:'Me considero un científico curioso y automotivado que disfruta ser sorprendido por la biología.',
-a_p1:'He enfocado mi carrera en herramientas computacionales para el análisis de sistemas biomoleculares. Mis proyectos se relacionan con el modelado molecular, simulaciones de dinámica de proteínas e interacciones proteína-ligando, incluyendo dinámica molecular dirigida y cálculos de paisajes de energía libre.',
-a_p2:'Más allá de la biofísica, he participado en otros proyectos de análisis (y/o desarrollo de código para el análisis) de datos genéticos, bioquímicos y químicos, incluyendo enfoques de aprendizaje automático y profundo, así como bio- y quimioinformática.',
-a_int:'Intereses de investigación',i1:'Dinámica e ingeniería de proteínas',i2:'Biofísica computacional',i3:'Modelado y simulaciones moleculares',i4:'Descubrimiento de fármacos con IA',i5:'Bioinformática y quimioinformática',i6:'Cómputo de alto rendimiento',a_cv:'Ver CV completo',
-p_title:'Información personal',p_loc:'Monterrey, México',p_lang:'Español (nativo), Inglés (C1)',e_title:'Educación',
-e1:'Doctorado en Ingeniería y Física Biomédica',e2:'Maestría en Ciencias Farmacéuticas',e3:'Licenciatura en Química Biofarmacéutica',
-e1t:'<em>Tesis: El papel de la conservación de la dinámica conformacional en el paradigma estructura-función: un caso de estudio en el RBD de variantes de la proteína Spike de SARS-CoV-2.</em>',
-e2t:'<em>Tesis: Análisis de polimorfismos del gen N-acetiltransferasa 2 (NAT2) como marcadores de daño hepático por el tratamiento antituberculoso de primera línea en una población del noreste de México, y estudios de dinámica molecular.</em>',
-r_title:'Trayectoria de investigación',r_intro:'Haz clic en cualquier etapa de mi trayectoria para leer la historia completa.',
-n1h:'Licenciatura en Química Biofarmacéutica',n2h:'Maestría en Ciencias Farmacéuticas',n3h:'Doctorado en Física e Ingeniería Biomédica',n4h:'Filosofía de investigación y direcciones futuras',
-n1b:'Como voluntario de pregrado en el Laboratorio de Química de Productos Naturales del Prof. Francisco Ávalos Alanís, en la Facultad de Química de la UANL, sinteticé, caractericé y evalué compuestos con potencial actividad antituberculosa y anticancerígena. Esta experiencia afinó mis conocimientos de química medicinal, metodologías sintéticas, estereoquímica y diseño de andamios moleculares para aplicaciones farmacológicas.',
-n2b:'Intrigado por la biología molecular y la genómica, durante la maestría me enfoqué en cómo las mutaciones genéticas pueden determinar el curso de las enfermedades. En el laboratorio de Inmunogenética del Centro de Investigación Biomédica del Noreste (CIBIN-IMSS), bajo la dirección de la Dra. Beatriz Silva Ramírez, investigamos biomarcadores genómicos en población mexicana para la medicina de precisión y la toxicidad por fármacos. Nuestros hallazgos experimentales correlacionaron mutaciones del gen NAT2 con hepatotoxicidad en el tratamiento de la tuberculosis. Al identificar un vacío en la explicación a nivel molecular, junto con el Dr. Mauricio Carrillo-Tripp desarrollamos un marco computacional que integra modelado molecular, HPC y dinámica molecular para dilucidar el impacto atómico de estas mutaciones no sinónimas, lo que derivó en una publicación arbitrada.',
-n3b1:'Bajo la dirección del Dr. Mauricio Carrillo-Tripp desarrollé una amplia experiencia en biofísica computacional y en modelado y dinámica molecular. Mi investigación mostró que la presión evolutiva influye en la función de las proteínas virales al restringir su dinámica conformacional y preservar movimientos correlacionados esenciales. Esto implicó simulaciones de dinámica molecular a gran escala, automatización de flujos de trabajo, muestreo mejorado (AWH, umbrella sampling), cálculos de energía libre (PMF) y evaluaciones de flexibilidad (clustering, RMSF, PCA).',
-n3b2:'Más allá de la biofísica, cuento con habilidades avanzadas de programación y manejo de HPC, evidenciadas por publicaciones como primer autor sobre el desarrollo de un pipeline propio en Bash para docking molecular de alto rendimiento dirigido a cavidades en complejos proteína-ligando, que asegura la convergencia a puntajes de unión mínimos, así como su versión en Python. Este marco demuestra mi experiencia en flujos automatizados de alto volumen que entregan resultados biológicamente relevantes, como lo muestran nuestros hallazgos sobre compuestos del ajo contra COVID-19 y un pipeline de reposicionamiento de fármacos contra SARS-CoV-2.',
-n4b1:'Mi trayectoria refleja una clara mentalidad colaborativa, un impulso constante por desentrañar mecanismos biológicos fundamentales y la ambición de explorar nuevas fronteras biológicas, donde las habilidades interdisciplinarias son esenciales. Me adapto con facilidad a problemas complejos al empujar los límites metodológicos, destacando en áreas que requieren enfoques computacionales novedosos para el descubrimiento y la comprensión biológica.',
-n4b2:'Mi interés central se ubica en la intersección entre la dinámica de proteínas, la biofísica computacional para soluciones biomédicas y el diseño racional de proteínas. La ingeniería de proteínas es un interés primordial, motivado por la necesidad de traducir el conocimiento fundamental en el diseño creativo de nuevas funciones moleculares. Me interesa en particular aplicar el conocimiento de la dinámica de proteínas y sus paisajes conformacionales para diseñar proteínas con funciones específicas y aplicaciones biomédicas.',
-pub_title:'Publicaciones',pub_src:'Se actualiza automáticamente desde ORCID y OpenAlex (autores y citas).',pub_load:'Cargando publicaciones…',pub_err:'No se pudo conectar con ORCID; se muestra la última lista guardada.',pub_none:'Sin año',
-s_title:'Habilidades técnicas',s1:'Herramientas computacionales moleculares',s2:'Programación y ciencia de datos',s3:'Laboratorio y habilidades blandas',
-c_title:'Portafolio de código',c1h:'Minero de interacciones fármaco-blanco',c1:'Extrae información proteína-ligando a partir de IDs del PDB en formato de grafo para redes neuronales de grafos.',
-c2h:'Pipeline en Bash',c2:'Automatiza el análisis de docking molecular en múltiples ciclos, procesa archivos a entradas de AutoDock Vina y da formato CSV a los resultados.',
-c3h:'Notebooks de quimioinformática',c3:'Analiza la distribución de conjuntos de docking molecular y visualiza interacciones electrostáticas frecuentes en proteínas.',
-c4h:'Notebooks de Colab',c4:'Docking proteína-ADN y simulaciones de dinámica molecular proteína-ligando.',c_btn:'Ver mi GitHub',
-k_title:'Contacto',k_h:'¿Te interesa colaborar?',k_p:'Siempre estoy abierto a conversar sobre nuevas oportunidades de investigación, colaboraciones o proyectos.',k_btn:'Escríbeme un correo',f_rights:'Todos los derechos reservados.',
-B:{'High-Throughput Virtual Screening':'Cribado virtual de alto rendimiento','Molecular Docking':'Docking molecular','Free Energy Calculations':'Cálculos de energía libre','Molecular Modeling':'Modelado molecular','PCA Analysis':'Análisis PCA','Hydrogen Bond Analysis':'Análisis de puentes de hidrógeno','Conformational Entropy Analysis':'Análisis de entropía conformacional','HPC Environments':'Entornos HPC','Linux/Unix Systems':'Sistemas Linux/Unix','Data Visualization':'Visualización de datos','Micropipette':'Micropipeteo','Solution Preparation':'Preparación de soluciones','Centrifugation':'Centrifugación','UV-Vis Spectrophotometry':'Espectrofotometría UV-Vis','Titration':'Titulación','Bacterial Culture':'Cultivo bacteriano','Gram Staining':'Tinción de Gram','Autoclaving':'Autoclave','PCR':'PCR','Critical Thinking':'Pensamiento crítico','Problem Solving':'Resolución de problemas','Team Collaboration':'Trabajo en equipo','Adaptability':'Adaptabilidad','Project Management':'Gestión de proyectos','Scientific Communication':'Comunicación científica'}
-};
-const EN_ONLY={pub_err:'Could not reach ORCID; showing the last saved list.',pub_none:'No year'};
-const EN={};
-// Insignias (las técnicas no se traducen; las descriptivas sí)
-$$('[data-b]').forEach(el=>el.innerHTML=el.dataset.b.split(',').map(t=>`<span class="badge-s">${t}</span>`).join(''));
-$$('[data-b-i]').forEach(el=>el.innerHTML=el.dataset.bI.split('|').map(t=>`<span class="badge-s" data-bi="${t}">${t}</span>`).join(''));
-$$('[data-i]').forEach(el=>EN[el.dataset.i]=el.innerHTML);
-Object.assign(EN,EN_ONLY);
+$$("[data-es]").forEach(function(el){el.setAttribute("data-en",el.innerHTML)});
+$$("[data-t]").forEach(function(el){el.innerHTML=el.dataset.t.split(",").map(function(t){return"<span>"+t+"</span>"}).join("")});
+$$("[data-ti]").forEach(function(el){el.innerHTML=el.dataset.ti.split("|").map(function(t){return'<span class="tr" data-en="'+t+'">'+t+"</span>"}).join("")});
 
-let lang=ls.get('lang')||((navigator.language||'en').toLowerCase().startsWith('es')?'es':'en');
-const t=k=>lang==='es'?(ES[k]??EN[k]):EN[k];
-function applyLang(){
-  document.documentElement.lang=lang;
-  $$('[data-i]').forEach(el=>el.innerHTML=t(el.dataset.i));
-  $$('[data-bi]').forEach(el=>el.textContent=lang==='es'?(ES.B[el.dataset.bi]||el.dataset.bi):el.dataset.bi);
-  $('#langBtn span').textContent=lang==='es'?'EN':'ES';
+function setLang(l){
+  lang=l; document.documentElement.lang=l; ls.set("lang",l);
+  $$("[data-es]").forEach(function(el){el.innerHTML=el.getAttribute(l==="es"?"data-es":"data-en")});
+  $$(".tr").forEach(function(el){var e=el.getAttribute("data-en");el.textContent=l==="es"?(B[e]||e):e});
+  $$(".lang button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.lang===l)});
+  document.title=l==="es"?"Doctor Aldo Herrera | Biofísica computacional":"Aldo Herrera, PhD | Computational Biophysics";
   renderPubs();
 }
-$('#langBtn').onclick=()=>{lang=lang==='es'?'en':'es';ls.set('lang',lang);applyLang()};
+$$(".lang button").forEach(function(b){b.addEventListener("click",function(){setLang(b.dataset.lang)})});
 
-/* ---------- Tema claro / oscuro ---------- */
-let theme=ls.get('theme')||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');
-function applyTheme(){document.documentElement.dataset.bsTheme=theme;$('#themeBtn i').className=theme==='dark'?'fas fa-sun':'fas fa-moon'}
-$('#themeBtn').onclick=()=>{theme=theme==='dark'?'light':'dark';ls.set('theme',theme);applyTheme()};
+var theme=ls.get("theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");
+function setTheme(t){theme=t;document.documentElement.dataset.theme=t;ls.set("theme",t)}
+document.getElementById("themeBtn").addEventListener("click",function(){setTheme(theme==="dark"?"light":"dark")});
+setTheme(theme);
 
-/* ---------- Publicaciones desde ORCID ---------- */
-// Lista de respaldo por si ORCID no responde
-const FALLBACK=[
-{y:2025,title:'A Garlic-Derived Lead Compound Targeting SARS-CoV-2 Entry via RBD–ACE2 Disruption',j:'Molecules'},
-{y:2025,title:'Extensive In-silico Target-Ligand Conformational Space Sampling of Garlic-Derived Sulfur Compounds Targeting COVID-19 Infection',j:'Journal of Computational Biophysics and Chemistry'},
-{y:2025,title:'Mycobacterium Susceptibility to Ivermectin by Inhibition of eccD3, an ESX-3 Secretion System Component',j:'PLOS Computational Biology'},
-{y:2022,title:'Repurposing Drugs as Potential Therapeutics for the SARS-CoV-2 Viral Infection: Automatizing a Blind Molecular Docking High-throughput Pipeline',j:'Biomedical Engineering, IntechOpen',doi:'10.5772/intechopen.105792'},
-{y:2022,title:'Immunomodulatory Effects of Allium sativum L. and its Constituents Against Viral Infections and Metabolic Diseases',j:'Current Topics in Medicinal Chemistry',doi:'10.2174/1568026621666211122163156'},
-{y:2021,title:'NAT2 Polymorphisms Associated with the Development of Hepatotoxicity After First-line Tuberculosis Treatment in Mexican Patients: From Genotype to Molecular Structure Characterization',j:'Clinica Chimica Acta',doi:'10.1016/j.cca.2021.04.017'}];
-const SCOPUS_ID='';   // opcional: tu Scopus Author ID (solo números) para mostrar el botón de perfil
-let pubs=null,failed=false;
-const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const norm=s=>String(s||'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
-const cleanDoi=d=>d?String(d).replace(/^https?:\/\/(dx\.)?doi\.org\//i,'').toLowerCase():'';
-async function getJSON(u,h){const r=await fetch(u,h?{headers:h}:undefined);if(!r.ok)throw 0;return r.json()}
+/* ---------- Publicaciones ---------- */
+var FALLBACK=[
+{y:2025,title:"A Garlic-Derived Lead Compound Targeting SARS-CoV-2 Entry via RBD–ACE2 Disruption",j:"Molecules"},
+{y:2025,title:"Extensive In-silico Target-Ligand Conformational Space Sampling of Garlic-Derived Sulfur Compounds Targeting COVID-19 Infection",j:"Journal of Computational Biophysics and Chemistry"},
+{y:2025,title:"Mycobacterium Susceptibility to Ivermectin by Inhibition of eccD3, an ESX-3 Secretion System Component",j:"PLOS Computational Biology"},
+{y:2022,title:"Repurposing Drugs as Potential Therapeutics for the SARS-CoV-2 Viral Infection: Automatizing a Blind Molecular Docking High-throughput Pipeline",j:"Biomedical Engineering, IntechOpen",doi:"10.5772/intechopen.105792"},
+{y:2022,title:"Immunomodulatory Effects of Allium sativum L. and its Constituents Against Viral Infections and Metabolic Diseases",j:"Current Topics in Medicinal Chemistry",doi:"10.2174/1568026621666211122163156"},
+{y:2021,title:"NAT2 Polymorphisms Associated with the Development of Hepatotoxicity After First-line Tuberculosis Treatment in Mexican Patients: From Genotype to Molecular Structure Characterization",j:"Clinica Chimica Acta",doi:"10.1016/j.cca.2021.04.017"}];
+// Autores forzados a mano (clave: DOI en minúsculas o título exacto): {"10.xxxx/xxxx":"A. Herrera, M. Carrillo-Tripp"}
+var MANUAL={};
+
+function cleanDoi(d){return d?String(d).replace(/^https?:\/\/(dx\.)?doi\.org\//i,"").toLowerCase():""}
+function getJSON(u,h){return fetch(u,h?{headers:h}:undefined).then(function(r){if(!r.ok)throw 0;return r.json()})}
+function nm(x){return[x.given,x.family].filter(Boolean).join(" ")}
+
+// Completa autores faltantes: ORCID (detalle) -> Crossref por DOI -> Crossref por título
+function fillAuthors(list){
+  return Promise.all(list.filter(function(p){return!(p.authors&&p.authors.length)}).map(async function(p){
+    var man=MANUAL[p.doi]||MANUAL[p.title];
+    if(man){p.authors=man.split(",").map(function(s){return s.trim()});return}
+    try{
+      if(p.put){
+        var d=await getJSON("https://pub.orcid.org/v3.0/"+ORCID+"/work/"+p.put,{Accept:"application/json"});
+        var a=((d.contributors||{}).contributor||[]).map(function(c){return c["credit-name"]&&c["credit-name"].value}).filter(Boolean);
+        if(a.length){p.authors=a;return}
+      }
+      if(p.doi){
+        var c=await getJSON("https://api.crossref.org/works/"+encodeURIComponent(p.doi));
+        var b=(c.message.author||[]).map(nm);
+        if(b.length){p.authors=b;return}
+      }
+      var q=await getJSON("https://api.crossref.org/works?query.bibliographic="+encodeURIComponent(p.title)+"&rows=1");
+      var it=(q.message.items||[])[0];
+      if(it&&norm((it.title||[])[0])===norm(p.title))p.authors=(it.author||[]).map(nm);
+    }catch(e){}
+  }));
+}
+
 async function loadPubs(){
-  let orc=[],oa=[];
+  var orc=[],oa=[];
   try{
-    const d=await getJSON(`https://pub.orcid.org/v3.0/${ORCID}/works`,{Accept:'application/json'});
-    orc=(d.group||[]).map(g=>{
-      const w=g['work-summary'][0];
-      const doi=(g['external-ids']?.['external-id']||[]).find(e=>e['external-id-type']==='doi');
-      return{y:+(w['publication-date']?.year?.value)||0,title:w.title?.title?.value,j:w['journal-title']?.value,doi:cleanDoi(doi?.['external-id-value']),url:w.url?.value};
-    }).filter(p=>p.title);
+    var d=await getJSON("https://pub.orcid.org/v3.0/"+ORCID+"/works",{Accept:"application/json"});
+    orc=(d.group||[]).map(function(g){
+      var w=g["work-summary"][0];
+      var doi=((g["external-ids"]||{})["external-id"]||[]).filter(function(e){return e["external-id-type"]==="doi"})[0];
+      return{put:w["put-code"],y:+((w["publication-date"]||{}).year||{}).value||0,title:(w.title&&w.title.title||{}).value,
+        j:(w["journal-title"]||{}).value,doi:cleanDoi(doi&&doi["external-id-value"]),url:(w.url||{}).value};
+    }).filter(function(p){return p.title});
   }catch(e){}
   try{
-    const d=await getJSON(`https://api.openalex.org/works?filter=author.orcid:https://orcid.org/${ORCID}&per-page=100&select=title,doi,publication_year,primary_location,authorships,cited_by_count`);
-    oa=(d.results||[]).map(w=>({y:w.publication_year||0,title:w.title,j:w.primary_location?.source?.display_name,doi:cleanDoi(w.doi),
-      authors:(w.authorships||[]).map(a=>a.author?.display_name).filter(Boolean),cites:w.cited_by_count||0}));
+    var o=await getJSON("https://api.openalex.org/works?filter=author.orcid:https://orcid.org/"+ORCID+"&per-page=100&select=title,doi,publication_year,primary_location,authorships,cited_by_count");
+    oa=(o.results||[]).map(function(w){return{y:w.publication_year||0,title:w.title,
+      j:w.primary_location&&w.primary_location.source?w.primary_location.source.display_name:"",doi:cleanDoi(w.doi),
+      authors:(w.authorships||[]).map(function(a){return a.author&&a.author.display_name}).filter(Boolean),cites:w.cited_by_count}});
   }catch(e){}
-  // Fusionar: ORCID es la base; OpenAlex aporta autores, citas y registros faltantes
-  const list=[...orc];
-  oa.forEach(o=>{
-    const m=list.find(p=>(p.doi&&p.doi===o.doi)||norm(p.title)===norm(o.title));
+  var list=orc.slice();
+  oa.forEach(function(o){
+    var m=list.filter(function(p){return(p.doi&&p.doi===o.doi)||norm(p.title)===norm(o.title)})[0];
     if(m){m.authors=o.authors;m.cites=o.cites;m.doi=m.doi||o.doi;m.j=m.j||o.j;m.y=m.y||o.y}else list.push(o);
   });
-  if(list.length){pubs=list}else{pubs=FALLBACK;failed=true}
+  if(list.length){await fillAuthors(list);pubs=list}else{pubs=FALLBACK;failed=true}
+  pubs.sort(function(a,b){return(b.y||0)-(a.y||0)});
   renderPubs();
 }
+
 function renderPubs(){
-  if(!pubs)return;
-  const by={};pubs.forEach(p=>(by[p.y||0]??=[]).push(p));
-  const years=Object.keys(by).map(Number).sort((a,b)=>(b||9999)-(a||9999));
-  const au=p=>{if(!p.authors?.length)return'';const n=p.authors.slice(0,10).map(a=>/herrera/i.test(a)?`<strong>${esc(a)}</strong>`:esc(a));
-    return`<p class="muted small mb-1">${n.join(', ')}${p.authors.length>10?' et al.':''}</p>`};
-  $('#pubs').innerHTML=(failed?`<p class="muted small mt-3">${t('pub_err')}</p>`:'')+years.map(y=>
-    `<h4 class="year">${y||t('pub_none')}</h4>`+by[y].map(p=>{
-      const link=p.doi?`https://doi.org/${p.doi}`:p.url;
-      return`<div class="pub"><h5>${esc(p.title)}</h5>${au(p)}<p class="mb-0 muted">${p.j?`<em>${esc(p.j)}</em>`:''}${link?` · <a href="${esc(link)}" target="_blank" rel="noopener">${p.doi?'DOI':'Link'} <i class="fas fa-arrow-up-right-from-square small"></i></a>`:''}${p.cites!=null?` · <i class="fas fa-quote-left small"></i> ${p.cites} ${lang==='es'?'citas':'citations'}`:''}</p></div>`}).join('')
-  ).join('');
+  var box=document.getElementById("pub-list"),t=T[lang];
+  if(!pubs){box.textContent=t.loading;return}
+  box.innerHTML=(failed?'<p class="meta">'+t.err+"</p>":"")+pubs.map(function(p){
+    var au=(p.authors&&p.authors.length)?'<p class="au">'+p.authors.slice(0,12).map(function(a){return/herrera/i.test(a)?"<strong>"+esc(a)+"</strong>":esc(a)}).join(", ")+(p.authors.length>12?" et al.":"")+"</p>":"";
+    var link=p.doi?"https://doi.org/"+p.doi:p.url;
+    var meta=[p.j?"<em>"+esc(p.j)+"</em>":"",esc(p.y||t.none),p.cites!=null?p.cites+" "+t.cites:""].filter(Boolean).join(" · ");
+    return'<article class="pub"><h4>'+esc(p.title)+"</h4>"+au+'<p class="meta">'+meta+(link?' · <a href="'+esc(link)+'" target="_blank" rel="noopener">'+(p.doi?"DOI":"Link")+"</a>":"")+"</p></article>";
+  }).join("");
 }
 
-/* ---------- Varios ---------- */
-$('#yr').textContent=new Date().getFullYear();
-const topBtn=$('#top');addEventListener('scroll',()=>topBtn.style.display=scrollY>300?'block':'none');
-topBtn.onclick=()=>scrollTo({top:0,behavior:'smooth'});
-$$('.navbar-nav .nav-link').forEach(a=>a.addEventListener('click',()=>{const c=$('#nav');if(c.classList.contains('show'))bootstrap.Collapse.getOrCreateInstance(c).hide()}));
-new bootstrap.ScrollSpy(document.body,{target:'#navbar',offset:100});
-if(SCOPUS_ID)$('#pubs').insertAdjacentHTML('beforebegin',`<a class="btn btn-ghost btn-sm mt-3" target="_blank" rel="noopener" href="https://www.scopus.com/authid/detail.uri?authorId=${SCOPUS_ID}"><i class="fas fa-book-open me-2"></i>Scopus</a>`);
-applyTheme();applyLang();loadPubs();
+document.getElementById("yr").textContent=new Date().getFullYear();
+renderPubs();
+setLang(ls.get("lang")==="es"?"es":"en");
+loadPubs();
 </script>
 </body>
 </html>
