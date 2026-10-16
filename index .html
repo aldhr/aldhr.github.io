@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aldo Herrera, PhD | Computational Biophysics</title>
+<meta name="description" content="Aldo Herrera, PhD - Computational Biophysics and Protein Engineering">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f8fa;--surface:#fff;--ink:#17262e;--muted:#52666f;--line:#d3e0e5;--accent:#0b6b7c;--accent-ink:#fff;
+--serif:"Source Serif 4",Georgia,serif;--sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+:root[data-theme=dark]{--bg:#0e1a20;--surface:#15252d;--ink:#e3edf1;--muted:#9bb0b9;--line:#26404b;--accent:#5cc3d3;--accent-ink:#0e1a20}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:7.5rem}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.65 var(--sans);padding-bottom:env(safe-area-inset-bottom,0)}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+header{position:sticky;top:0;z-index:20;background:var(--surface);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:.75rem;max-width:62rem;margin:auto;padding:.6rem 1rem}
+.brand{font:700 1.05rem var(--serif);color:var(--ink);text-decoration:none}
+.tools{display:flex;gap:.5rem;align-items:center;flex:none}
+.lang{display:inline-flex;border:2px solid var(--accent);border-radius:999px;overflow:hidden}
+.lang button,.theme{font:600 .9rem var(--sans);border:0;background:none;color:var(--accent);padding:.45rem .9rem;min-height:2.5rem;cursor:pointer}
+.lang button[aria-pressed=true]{background:var(--accent);color:var(--accent-ink)}
+.theme{border:2px solid var(--accent);border-radius:999px;padding:.45rem .7rem}
+nav{max-width:62rem;margin:auto;display:flex;gap:.25rem;overflow-x:auto;padding:0 .75rem .4rem;scrollbar-width:none}
+nav a{white-space:nowrap;text-decoration:none;color:var(--muted);padding:.4rem .7rem;border-radius:.4rem;font-weight:500}
+nav a:hover{color:var(--ink);background:var(--bg)}
+main{max-width:62rem;margin:auto;padding:0 1rem}
+section{padding:3rem 0;border-bottom:1px solid var(--line)}
+h1,h2,h3,h4{font-family:var(--serif);line-height:1.2;margin:0 0 .6rem}
+h2{font-size:1.9rem;margin-bottom:1.2rem}
+h3{font-size:1.15rem}
+.hero{display:grid;gap:2rem;align-items:center;padding:3rem 0}
+.hero img{width:min(15rem,70%);aspect-ratio:1;object-fit:cover;border-radius:50%;border:4px solid var(--surface);box-shadow:0 0 0 2px var(--accent);justify-self:center}
+.kicker{color:var(--accent);font-weight:600;margin:0 0 .5rem}
+h1{font-size:clamp(2.4rem,9vw,4rem);letter-spacing:-.02em;margin:0 0 .5rem}
+.sub{font-size:1.2rem;color:var(--muted);margin:0 0 1.2rem}
+.links{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0}
+.links a{border:1px solid var(--line);background:var(--surface);padding:.35rem .75rem;border-radius:.4rem;text-decoration:none;font-size:.9rem;font-weight:500}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-ink);padding:.7rem 1.2rem;border-radius:.4rem;text-decoration:none;font-weight:600;margin:.25rem .5rem .25rem 0}
+.btn.alt{background:none;color:var(--accent);border:2px solid var(--accent)}
+.cols{display:grid;gap:2rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:.5rem;padding:1.2rem}
+.card h4{font-size:1rem;margin-bottom:.8rem}
+ul.plain{margin:0;padding-left:1.1rem}
+ul.plain li{margin:.25rem 0}
+.edu{margin-bottom:1rem}.edu h5{font:600 1rem var(--sans);margin:0}.edu p{margin:.1rem 0;color:var(--muted);font-size:.95rem}
+details{background:var(--surface);border:1px solid var(--line);border-radius:.5rem;margin-bottom:.7rem}
+summary{cursor:pointer;padding:1rem 1.2rem;font:700 1.1rem var(--serif);list-style:none;display:flex;justify-content:space-between;gap:1rem}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--accent);font-size:1.4rem;line-height:1}
+details[open] summary::after{content:"−"}
+details div{padding:0 1.2rem 1rem}
+.pub{padding:1rem 0;border-bottom:1px solid var(--line)}
+.pub h4{font-size:1.05rem;margin-bottom:.3rem}
+.pub .au{margin:0 0 .3rem;font-size:.95rem}
+.pub .meta{margin:0;color:var(--muted);font-size:.88rem}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.6rem}
+.tags span{background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:.2rem .7rem;font-size:.88rem}
+.grid{display:grid;gap:1rem}
+footer{text-align:center;color:var(--muted);padding:2rem 1rem;font-size:.9rem}
+@media(min-width:760px){.hero{grid-template-columns:1.4fr 1fr}.cols{grid-template-columns:1.6fr 1fr}.grid{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <a class="brand" href="#home" data-es="DOCTOR ALDO HERRERA">ALDO HERRERA, PHD</a>
+    <div class="tools">
+      <div class="lang" role="group" aria-label="Language / Idioma">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="es" aria-pressed="false">ES</button>
+      </div>
+      <button type="button" class="theme" id="themeBtn" aria-label="Light / dark">◐</button>
+    </div>
+  </div>
+  <nav aria-label="Main">
+    <a href="#about" data-es="Acerca de">About</a>
+    <a href="#research" data-es="Investigación">Research</a>
+    <a href="#publications" data-es="Publicaciones">Publications</a>
+    <a href="#skills" data-es="Habilidades">Skills</a>
+    <a href="#contact" data-es="Contacto">Contact</a>
+  </nav>
+</header>
+
+<main id="home">
+<div class="hero">
+  <div>
+    <p class="kicker" data-es="Biofísica computacional e ingeniería de proteínas">Computational Biophysics &amp; Protein Engineering</p>
+    <h1 data-es="Doctor Aldo Herrera">Aldo Herrera, PhD</h1>
+    <p class="sub" data-es="Modelado y dinámica molecular | Descubrimiento de fármacos con IA">Molecular Modeling &amp; Dynamics | AI-driven Drug Discovery</p>
+    <div class="links">
+      <a href="https://github.com/aldhr" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/aldo-herrera-37894523a/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://twitter.com/aldhrod" target="_blank" rel="noopener">Twitter</a>
+      <a href="https://scholar.google.com/citations?user=iTskABYAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+      <a href="https://orcid.org/0000-0003-1279-7697" target="_blank" rel="noopener">ORCID</a>
+      <a href="https://www.researchgate.net/profile/Aldo-Herrera-5" target="_blank" rel="noopener">ResearchGate</a>
+    </div>
+    <a class="btn" href="#research" data-es="Ver investigación">View Research</a>
+    <a class="btn alt" href="./AldoH_CV(27N).pdf" target="_blank" data-es="Descargar CV">Download CV</a>
+  </div>
+  <img src="assets/imgs/avatar2.jpg" alt="Aldo Herrera">
+</div>
+
+<section id="about">
+  <h2 data-es="Acerca de mí">About Me</h2>
+  <div class="cols">
+    <div>
+      <p data-es="Me considero un científico curioso y automotivado que disfruta ser sorprendido por la biología.">I like to think of myself as a curious and self-motivated scientist that enjoys being surprised by biology.</p>
+      <p data-es="He enfocado mi carrera en herramientas computacionales para el análisis de sistemas biomoleculares. Mis proyectos se relacionan con el modelado molecular, simulaciones de dinámica de proteínas e interacciones proteína-ligando, incluyendo dinámica molecular dirigida y cálculos de paisajes de energía libre.">I have focused my career on computational tools for the analysis of biomolecular systems. My projects are strongly related to molecular modelling, simulations of protein dynamics and protein-ligand interactions, including steered molecular dynamics and free energy landscape calculations.</p>
+      <p data-es="Más allá de la biofísica, he participado en otros proyectos de análisis (y/o desarrollo de código para el análisis) de datos genéticos, bioquímicos y químicos, incluyendo enfoques de aprendizaje automático y profundo, así como bio- y quimioinformática.">Beyond biophysics, I have also participated in other projects for the analysis (and/or code developing for the analysis) of genetic, biochemical, and chemical data. Including approaches of machine and deep learning as well as bio- and chemo- informatics.</p>
+      <h3 data-es="Intereses de investigación">Research Interests</h3>
+      <div class="grid">
+        <ul class="plain">
+          <li data-es="Dinámica e ingeniería de proteínas">Protein Dynamics &amp; Engineering</li>
+          <li data-es="Biofísica computacional">Computational Biophysics</li>
+          <li data-es="Modelado y simulaciones moleculares">Molecular Modeling &amp; Simulations</li>
+        </ul>
+        <ul class="plain">
+          <li data-es="Descubrimiento de fármacos con IA">AI-driven Drug Discovery</li>
+          <li data-es="Bioinformática y quimioinformática">Bioinformatics &amp; Chemoinformatics</li>
+          <li data-es="Cómputo de alto rendimiento">High-Performance Computing</li>
+        </ul>
+      </div>
+      <p><a href="./AldoH_CV(27N).pdf" target="_blank" data-es="Ver CV completo">View Full CV</a></p>
+    </div>
+    <aside>
+      <div class="card">
+        <h4 data-es="Información personal">Personal Info</h4>
+        <ul class="plain">
+          <li><a href="mailto:aldo.hrodulfo@gmail.com">aldo.hrodulfo@gmail.com</a></li>
+          <li data-es="Monterrey, México">Monterrey, Mexico</li>
+          <li data-es="Español (nativo), inglés (C1)">Spanish (Native), English (C1)</li>
+          <li><a href="https://aldhr.github.io/">aldhr.github.io</a></li>
+          <li>ORCID: 0000-0003-1279-7697</li>
+        </ul>
+      </div>
+      <div class="card" style="margin-top:1rem">
+        <h4 data-es="Formación">Education</h4>
+        <div class="edu"><h5 data-es="Doctorado en Ingeniería y Física Biomédica">PhD in Biomedical Engineering and Physics</h5>
+          <p data-es="CINVESTAV, Unidad Monterrey">CINVESTAV, Monterrey Unit</p><p>2020 - 2025</p>
+          <p><em data-es="Tesis: El papel de la conservación de la dinámica conformacional en el paradigma estructura-función: un caso de estudio en el RBD de variantes de la proteína Spike de SARS-CoV-2.">Thesis: The Role of Conformational Dynamics Conservation in the Structure-Function Paradigm: A Case Study on the RBD of SARS-CoV-2 Spike Protein Variants.</em></p></div>
+        <div class="edu"><h5 data-es="Maestría en Ciencias con Orientación en Farmacia">MSc in Pharmaceutical Science</h5>
+          <p data-es="Universidad Autónoma de Nuevo León (UANL)">Autonomous University of Nuevo León (UANL)</p><p>2018 - 2020</p>
+          <p><em data-es="Tesis: Análisis de polimorfismos del gen N-acetiltransferasa 2 (NAT2) como marcadores de daño hepático por el tratamiento antituberculoso de primera línea en una población del noreste de México, y estudios de dinámica molecular.">Thesis: Analysis of N-acetyltransferase 2 (NAT2) gene polymorphisms as markers of liver damage from first-line tuberculosis treatment in a population from northeastern Mexico, and molecular dynamics studies.</em></p></div>
+        <div class="edu"><h5 data-es="Químico Farmacéutico Biólogo (QFB)">BSc in Biopharmaceutical Chemistry</h5>
+          <p data-es="Universidad Autónoma de Nuevo León (UANL)">Autonomous University of Nuevo León (UANL)</p><p>2013 - 2018</p></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section id="research">
+  <h2 data-es="Trayectoria de investigación">Research Narrative</h2>
+  <p style="color:var(--muted)" data-es="Haz clic en cualquier etapa de mi trayectoria para leer la historia completa.">Click on any stage of my career to read the full story.</p>
+  <details>
+    <summary><span data-es="Químico Farmacéutico Biólogo (QFB)">BSc in Biopharmaceutical Chemistry</span></summary>
+    <div><p data-es="Como voluntario de pregrado en el Laboratorio de Química de Productos Naturales del Prof. Francisco Ávalos Alanís, en la Facultad de Ciencias Químicas de la UANL, sinteticé, caractericé y evalué compuestos con potencial actividad antituberculosa y anticancerígena. Esta experiencia afinó mis conocimientos de química medicinal, metodologías sintéticas, estereoquímica y diseño de andamios moleculares para aplicaciones farmacológicas.">As an undergraduate volunteer in Prof. Francisco Ávalos Alanís's Natural Products Chemistry Laboratory at Faculty of Chemistry at UANL, I synthesized, characterized, and screened compounds for potential anti-tuberculosis and anti-cancer activity. This experience refined my medicinal chemistry knowledge, synthetic methodologies, stereochemistry, and scaffold design for pharmacological applications.</p></div>
+  </details>
+  <details>
+    <summary><span data-es="Maestría en Ciencias con Orientación en Farmacia">MSc in Pharmaceutical Science</span></summary>
+    <div><p data-es="Intrigado por la biología molecular y la genómica, durante la maestría me enfoqué en cómo las mutaciones genéticas pueden determinar el curso de las enfermedades. En el laboratorio de Inmunogenética del Centro de Investigación Biomédica del Noreste (CIBIN-IMSS), bajo la dirección de la Dra. Beatriz Silva Ramírez, investigamos biomarcadores genómicos en población mexicana para la medicina de precisión y la toxicidad por fármacos. Nuestros hallazgos experimentales correlacionaron mutaciones del gen NAT2 con hepatotoxicidad en el tratamiento de la tuberculosis. Al identificar un vacío en la explicación a nivel molecular, junto con el Dr. Mauricio Carrillo-Tripp desarrollamos un marco computacional que integra modelado molecular, HPC y dinámica molecular para dilucidar el impacto atómico de estas mutaciones no sinónimas, lo que derivó en una publicación arbitrada.">Intrigued by molecular biology and genomics, I focused on how genetic mutations may drive disease outcomes during my master's. At the Immunogenetics lab from the Northeast Biomedical Research Center (CIBIN-IMSS), under the supervision of Dr. Beatriz Silva Ramírez, we investigated genomic biomarkers in the Mexican population for precision medicine and drug-related toxicity. Our experimental findings correlated NAT2 gene mutations with hepatotoxic outcomes in tuberculosis treatment. Recognizing a critical gap in the molecular-level explanation, together with Dr. Mauricio Carrillo-Tripp, we developed a computational framework integrating molecular modeling, HPC, and molecular dynamics to elucidate the atomic-level impact of these non-synonymous mutations, leading to a peer-reviewed publication.</p></div>
+  </details>
+  <details>
+    <summary><span data-es="Doctorado en Ingeniería y Física Biomédica">PhD in Biomedical Physics and Engineering</span></summary>
+    <div><p data-es="Bajo la dirección del Dr. Mauricio Carrillo-Tripp desarrollé una amplia experiencia en biofísica computacional y en modelado y dinámica molecular. Mi investigación mostró que la presión evolutiva influye en la función de las proteínas virales al restringir su dinámica conformacional y preservar movimientos correlacionados esenciales. Esto implicó simulaciones de dinámica molecular a gran escala, automatización de flujos de trabajo, muestreo mejorado (AWH, umbrella sampling), cálculos de energía libre (PMF) y evaluaciones de flexibilidad (clustering, RMSF, PCA).">Under Dr. Mauricio Carrillo-Tripp, I developed comprehensive expertise in Computational Biophysics and Molecular Modeling &amp; Dynamics. My research showed that evolutionary pressure influences viral protein function by constraining conformational dynamics and preserving essential correlated motions. This involved conducting large-scale Molecular Dynamics simulations, automating workflows, enhanced sampling (AWH, umbrella sampling), free energy calculations (PMF), and flexibility assessments (clustering, RMSF, PCA).</p>
+    <p data-es="Más allá de la biofísica, cuento con habilidades avanzadas de programación y manejo de HPC, evidenciadas por publicaciones como primer autor sobre el desarrollo de un pipeline propio en Bash para docking molecular de alto rendimiento dirigido a cavidades en complejos proteína-ligando, que asegura la convergencia a puntajes de unión mínimos, así como su versión en Python. Este marco demuestra mi experiencia en flujos automatizados de alto volumen que entregan resultados biológicamente relevantes, como lo muestran nuestros hallazgos sobre compuestos del ajo contra COVID-19 y un pipeline de reposicionamiento de fármacos contra SARS-CoV-2.">Beyond biophysics, I possess advanced programming and HPC management skills, evidenced by first-author publications at the development of an in-house Bash-based pipeline for high-throughput, cavity-targeting molecular docking of protein-ligand complexes, ensuring convergence to minimal binding scores, as well as its python version. This framework showcases my expertise in managing high-volume, automated workflows to deliver biologically relevant results, as demonstrated by our findings on garlic compounds for COVID-19 and a SARS-CoV-2 drug repurposing pipeline.</p></div>
+  </details>
+  <details>
+    <summary><span data-es="Filosofía de investigación y direcciones futuras">Research Philosophy &amp; Future Directions</span></summary>
+    <div><p data-es="Mi trayectoria refleja una clara mentalidad colaborativa, un impulso constante por desentrañar mecanismos biológicos fundamentales y la ambición de explorar nuevas fronteras biológicas, donde las habilidades interdisciplinarias son esenciales. Me adapto con facilidad a problemas complejos al empujar los límites metodológicos, destacando en áreas que requieren enfoques computacionales novedosos para el descubrimiento y la comprensión biológica.">My research history reflects a clear collaborative mindset, a relentless drive for unraveling fundamental biological mechanisms, and an ambition to explore new biological frontiers, where interdisciplinary skills are paramount. I consistently demonstrate a strong ability to adapt and tackle complex challenges by pushing methodological boundaries, excelling in areas requiring novel computational approaches for biological discovery and insight.</p>
+    <p data-es="Mi interés central se ubica en la intersección entre la dinámica de proteínas, la biofísica computacional para soluciones biomédicas y el diseño racional de proteínas. La ingeniería de proteínas es un interés primordial, motivado por la necesidad de traducir el conocimiento fundamental en el diseño creativo de nuevas funciones moleculares. Me interesa en particular aplicar el conocimiento de la dinámica de proteínas y sus paisajes conformacionales para diseñar proteínas con funciones específicas y aplicaciones biomédicas.">My core research interest lies at the intersection of protein dynamics, computational biophysics for biomedical solutions, and rational protein design. Protein engineering is a primary interest, driven by the need to translate fundamental understanding into the creative design of novel molecular functions. I am particularly interested in applying knowledge of protein dynamics and conformational landscapes to engineer proteins for specific desired functions and biomedical applications.</p></div>
+  </details>
+</section>
+
+<section id="publications">
+  <h2 data-es="Publicaciones">Publications</h2>
+  <p style="color:var(--muted)"><span data-es="Se actualiza automáticamente desde ORCID y OpenAlex (autores y citas).">Updated automatically from ORCID and OpenAlex (authors and citations).</span> <a href="https://orcid.org/0000-0003-1279-7697" target="_blank" rel="noopener">orcid.org/0000-0003-1279-7697</a></p>
+  <div id="pub-list" aria-live="polite"></div>
+</section>
+
+<section id="skills">
+  <h2 data-es="Habilidades técnicas">Technical Skills</h2>
+  <div class="grid g3">
+    <div class="card"><h4 data-es="Herramientas computacionales moleculares">Molecular Computational Tools</h4>
+      <div class="tags" data-t="GROMACS,RDKit,AutoDock,Vina,CHARMM,AMBER,NAMD,OpenMM,PyMOL,Chimera,Biopython,MDAnalysis,PLIP,PyRosetta"></div>
+      <div class="tags" data-ti="High-Throughput Virtual Screening|Molecular Docking|Free Energy Calculations|Molecular Modeling|PCA Analysis|Hydrogen Bond Analysis"></div></div>
+    <div class="card"><h4 data-es="Programación y ciencia de datos">Programming &amp; Data Science</h4>
+      <div class="tags" data-t="Python,R,Bash,Nextflow,Pandas,Matplotlib,Seaborn,NumPy,SciPy,Scikit-learn,PyTorch,TensorFlow,Slurm"></div>
+      <div class="tags" data-ti="HPC Environments|Linux/Unix Systems|Data Visualization"></div></div>
+    <div class="card"><h4 data-es="Laboratorio y habilidades blandas">Laboratory &amp; Soft Skills</h4>
+      <div class="tags" data-ti="Micropipette|Solution Preparation|Centrifugation|UV-Vis Spectrophotometry|Titration|Bacterial Culture|Gram Staining|Autoclaving|PCR|Critical Thinking|Problem Solving|Team Collaboration|Adaptability|Project Management|Scientific Communication"></div></div>
+  </div>
+  <h3 style="margin-top:2rem" data-es="Portafolio de código">Coding Portfolio</h3>
+  <div class="grid">
+    <div class="card"><h4 data-es="Minero de interacciones fármaco-blanco">Drug-target interaction miner</h4><p data-es="Extrae información proteína-ligando a partir de IDs del PDB en formato de grafo para redes neuronales de grafos.">Extracts protein-ligand information from PDB IDs into graph format for Graph Neural Network input.</p></div>
+    <div class="card"><h4 data-es="Pipeline en Bash">Bash-Scripting Pipeline</h4><p data-es="Automatiza el análisis de docking molecular en múltiples ciclos, procesa archivos a entradas de AutoDock Vina y da formato CSV a los resultados.">Automates multiple-cycle molecular docking analysis, processes files into AutoDock VINA inputs, formats output into CSV for further analysis.</p></div>
+    <div class="card"><h4 data-es="Notebooks de quimioinformática">Cheminformatics Analysis Notebooks</h4><p data-es="Analiza la distribución de conjuntos de docking molecular y visualiza interacciones electrostáticas frecuentes en proteínas.">Analyzes distribution of molecular docking sets, visualizes protein frequent electrostatic interactions.</p></div>
+    <div class="card"><h4 data-es="Notebooks de Colab">Colab notebooks</h4><p data-es="Docking proteína-ADN y simulaciones de dinámica molecular proteína-ligando.">Protein-DNA docking &amp; Protein-Ligand molecular dynamics simulations.</p></div>
+  </div>
+  <p><a class="btn" href="https://github.com/aldhr" target="_blank" rel="noopener" data-es="Ver mi GitHub">View My GitHub</a></p>
+</section>
+
+<section id="contact" style="border:0">
+  <h2 data-es="Contacto">Get In Touch</h2>
+  <h3 data-es="¿Te interesa colaborar?">Interested in collaborating?</h3>
+  <p data-es="Siempre estoy abierto a conversar sobre nuevas oportunidades de investigación, colaboraciones o proyectos.">I'm always open to discussing new research opportunities, collaborations, or potential projects.</p>
+  <a class="btn" href="mailto:aldo.hrodulfo@gmail.com" data-es="Escríbeme un correo">Send me an email</a>
+</section>
+</main>
+<footer>© <span id="yr"></span> <span data-es="Doctor Aldo Herrera.">Aldo Herrera, PhD.</span> <span data-es="Todos los derechos reservados.">All rights reserved.</span></footer>
+
+<script>
+var ORCID="0000-0003-1279-7697", lang="en", pubs=null, failed=false;
+var $$=function(s){return Array.prototype.slice.call(document.querySelectorAll(s))};
+var ls={get:function(k){try{return localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+var T={en:{cites:"citations",loading:"Loading publications…",err:"Could not reach ORCID; showing the last saved list.",none:"No year"},
+       es:{cites:"citas",loading:"Cargando publicaciones…",err:"No se pudo conectar con ORCID; se muestra la última lista guardada.",none:"Sin año"}};
+// Etiquetas descriptivas (las herramientas técnicas no se traducen)
+var B={"High-Throughput Virtual Screening":"Cribado virtual de alto rendimiento","Molecular Docking":"Docking molecular","Free Energy Calculations":"Cálculos de energía libre","Molecular Modeling":"Modelado molecular","PCA Analysis":"Análisis PCA","Hydrogen Bond Analysis":"Análisis de puentes de hidrógeno","HPC Environments":"Entornos HPC","Linux/Unix Systems":"Sistemas Linux/Unix","Data Visualization":"Visualización de datos","Micropipette":"Micropipeteo","Solution Preparation":"Preparación de soluciones","Centrifugation":"Centrifugación","UV-Vis Spectrophotometry":"Espectrofotometría UV-Vis","Titration":"Titulación","Bacterial Culture":"Cultivo bacteriano","Gram Staining":"Tinción de Gram","Autoclaving":"Uso de autoclave","PCR":"PCR","Critical Thinking":"Pensamiento crítico","Problem Solving":"Resolución de problemas","Team Collaboration":"Trabajo en equipo","Adaptability":"Adaptabilidad","Project Management":"Gestión de proyectos","Scientific Communication":"Comunicación científica"};
+var esc=function(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})};
+var norm=function(s){return String(s||"").toLowerCase().replace(/[^a-z0-9]+/g," ").trim()};
+
+$$("[data-es]").forEach(function(el){el.setAttribute("data-en",el.innerHTML)});
+$$("[data-t]").forEach(function(el){el.innerHTML=el.dataset.t.split(",").map(function(t){return"<span>"+t+"</span>"}).join("")});
+$$("[data-ti]").forEach(function(el){el.innerHTML=el.dataset.ti.split("|").map(function(t){return'<span class="tr" data-en="'+t+'">'+t+"</span>"}).join("")});
+
+function setLang(l){
+  lang=l; document.documentElement.lang=l; ls.set("lang",l);
+  $$("[data-es]").forEach(function(el){el.innerHTML=el.getAttribute(l==="es"?"data-es":"data-en")});
+  $$(".tr").forEach(function(el){var e=el.getAttribute("data-en");el.textContent=l==="es"?(B[e]||e):e});
+  $$(".lang button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.lang===l)});
+  document.title=l==="es"?"Doctor Aldo Herrera | Biofísica computacional":"Aldo Herrera, PhD | Computational Biophysics";
+  renderPubs();
+}
+$$(".lang button").forEach(function(b){b.addEventListener("click",function(){setLang(b.dataset.lang)})});
+
+var theme=ls.get("theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");
+function setTheme(t){theme=t;document.documentElement.dataset.theme=t;ls.set("theme",t)}
+document.getElementById("themeBtn").addEventListener("click",function(){setTheme(theme==="dark"?"light":"dark")});
+setTheme(theme);
+
+/* ---------- Publicaciones ---------- */
+var FALLBACK=[
+{y:2025,title:"A Garlic-Derived Lead Compound Targeting SARS-CoV-2 Entry via RBD–ACE2 Disruption",j:"Molecules"},
+{y:2025,title:"Extensive In-silico Target-Ligand Conformational Space Sampling of Garlic-Derived Sulfur Compounds Targeting COVID-19 Infection",j:"Journal of Computational Biophysics and Chemistry"},
+{y:2025,title:"Mycobacterium Susceptibility to Ivermectin by Inhibition of eccD3, an ESX-3 Secretion System Component",j:"PLOS Computational Biology"},
+{y:2022,title:"Repurposing Drugs as Potential Therapeutics for the SARS-CoV-2 Viral Infection: Automatizing a Blind Molecular Docking High-throughput Pipeline",j:"Biomedical Engineering, IntechOpen",doi:"10.5772/intechopen.105792"},
+{y:2022,title:"Immunomodulatory Effects of Allium sativum L. and its Constituents Against Viral Infections and Metabolic Diseases",j:"Current Topics in Medicinal Chemistry",doi:"10.2174/1568026621666211122163156"},
+{y:2021,title:"NAT2 Polymorphisms Associated with the Development of Hepatotoxicity After First-line Tuberculosis Treatment in Mexican Patients: From Genotype to Molecular Structure Characterization",j:"Clinica Chimica Acta",doi:"10.1016/j.cca.2021.04.017"}];
+// Autores forzados a mano (clave: DOI en minúsculas o título exacto): {"10.xxxx/xxxx":"A. Herrera, M. Carrillo-Tripp"}
+var MANUAL={};
+
+function cleanDoi(d){return d?String(d).replace(/^https?:\/\/(dx\.)?doi\.org\//i,"").toLowerCase():""}
+function getJSON(u,h){return fetch(u,h?{headers:h}:undefined).then(function(r){if(!r.ok)throw 0;return r.json()})}
+function nm(x){return[x.given,x.family].filter(Boolean).join(" ")}
+
+// Completa autores faltantes: ORCID (detalle) -> Crossref por DOI -> Crossref por título
+function fillAuthors(list){
+  return Promise.all(list.filter(function(p){return!(p.authors&&p.authors.length)}).map(async function(p){
+    var man=MANUAL[p.doi]||MANUAL[p.title];
+    if(man){p.authors=man.split(",").map(function(s){return s.trim()});return}
+    try{
+      if(p.put){
+        var d=await getJSON("https://pub.orcid.org/v3.0/"+ORCID+"/work/"+p.put,{Accept:"application/json"});
+        var a=((d.contributors||{}).contributor||[]).map(function(c){return c["credit-name"]&&c["credit-name"].value}).filter(Boolean);
+        if(a.length){p.authors=a;return}
+      }
+      if(p.doi){
+        var c=await getJSON("https://api.crossref.org/works/"+encodeURIComponent(p.doi));
+        var b=(c.message.author||[]).map(nm);
+        if(b.length){p.authors=b;return}
+      }
+      var q=await getJSON("https://api.crossref.org/works?query.bibliographic="+encodeURIComponent(p.title)+"&rows=1");
+      var it=(q.message.items||[])[0];
+      if(it&&norm((it.title||[])[0])===norm(p.title))p.authors=(it.author||[]).map(nm);
+    }catch(e){}
+  }));
+}
+
+async function loadPubs(){
+  var orc=[],oa=[];
+  try{
+    var d=await getJSON("https://pub.orcid.org/v3.0/"+ORCID+"/works",{Accept:"application/json"});
+    orc=(d.group||[]).map(function(g){
+      var w=g["work-summary"][0];
+      var doi=((g["external-ids"]||{})["external-id"]||[]).filter(function(e){return e["external-id-type"]==="doi"})[0];
+      return{put:w["put-code"],y:+((w["publication-date"]||{}).year||{}).value||0,title:(w.title&&w.title.title||{}).value,
+        j:(w["journal-title"]||{}).value,doi:cleanDoi(doi&&doi["external-id-value"]),url:(w.url||{}).value};
+    }).filter(function(p){return p.title});
+  }catch(e){}
+  try{
+    var o=await getJSON("https://api.openalex.org/works?filter=author.orcid:https://orcid.org/"+ORCID+"&per-page=100&select=title,doi,publication_year,primary_location,authorships,cited_by_count");
+    oa=(o.results||[]).map(function(w){return{y:w.publication_year||0,title:w.title,
+      j:w.primary_location&&w.primary_location.source?w.primary_location.source.display_name:"",doi:cleanDoi(w.doi),
+      authors:(w.authorships||[]).map(function(a){return a.author&&a.author.display_name}).filter(Boolean),cites:w.cited_by_count}});
+  }catch(e){}
+  var list=orc.slice();
+  oa.forEach(function(o){
+    var m=list.filter(function(p){return(p.doi&&p.doi===o.doi)||norm(p.title)===norm(o.title)})[0];
+    if(m){m.authors=o.authors;m.cites=o.cites;m.doi=m.doi||o.doi;m.j=m.j||o.j;m.y=m.y||o.y}else list.push(o);
+  });
+  if(list.length){await fillAuthors(list);pubs=list}else{pubs=FALLBACK;failed=true}
+  pubs.sort(function(a,b){return(b.y||0)-(a.y||0)});
+  renderPubs();
+}
+
+function renderPubs(){
+  var box=document.getElementById("pub-list"),t=T[lang];
+  if(!pubs){box.textContent=t.loading;return}
+  box.innerHTML=(failed?'<p class="meta">'+t.err+"</p>":"")+pubs.map(function(p){
+    var au=(p.authors&&p.authors.length)?'<p class="au">'+p.authors.slice(0,12).map(function(a){return/herrera/i.test(a)?"<strong>"+esc(a)+"</strong>":esc(a)}).join(", ")+(p.authors.length>12?" et al.":"")+"</p>":"";
+    var link=p.doi?"https://doi.org/"+p.doi:p.url;
+    var meta=[p.j?"<em>"+esc(p.j)+"</em>":"",esc(p.y||t.none),p.cites!=null?p.cites+" "+t.cites:""].filter(Boolean).join(" · ");
+    return'<article class="pub"><h4>'+esc(p.title)+"</h4>"+au+'<p class="meta">'+meta+(link?' · <a href="'+esc(link)+'" target="_blank" rel="noopener">'+(p.doi?"DOI":"Link")+"</a>":"")+"</p></article>";
+  }).join("");
+}
+
+document.getElementById("yr").textContent=new Date().getFullYear();
+renderPubs();
+setLang(ls.get("lang")==="es"?"es":"en");
+loadPubs();
+</script>
+</body>
+</html>
